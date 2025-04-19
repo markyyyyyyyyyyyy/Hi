@@ -1,0 +1,99 @@
+void nstp(){
+	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
+	char choose;
+	system("cls");
+
+
+
+        cout << "Exam's Starting, Goodluck..." << endl;
+        sleep(1.5);
+        system("cls");
+
+        // Questions & Answers
+        SetConsoleTextAttribute(h,6);
+        cout << "\n                             ==================================================================================================================================================\n";
+        cout << "\n\t\t\t\tDIRECTIONS: PLEASE READ EACH QUESTION CAREFULLY AND THINK BEFORE YOU ANSWER. MAKE SURE TO FOLLOW ALL INSTRUCTIONS GIVEN. ALL ANSWERS MUST BE \n\t\t\t\t    WRITTEN IN CAPITAL LETTERS ONLY. FAILURE TO DO SO MAY RESULT IN YOUR ANSWER BEING MARKED INCORRECT. TAKE YOUR TIME AND DO YOUR BEST!\n" << endl;
+        cout << "                             ==================================================================================================================================================\n\n";
+        SetConsoleTextAttribute(h,15);
+        const int NUM_QUESTIONS = 25;
+        string questions[NUM_QUESTIONS] = {
+		"1. What is the actual NSTP called?A. National Student Training Policy.B. Normal Study Task Program.C. National Service Training Program. D. None of the above.",
+		"2. What year was NSTP officially implemented in the Philippines?A. 2005B. 2007C. 2000D. 2001",
+		"3. What Republic Act does NSTP?A. R.A 1073B. R.A 9163C. R.A 1033D. R.A 2018",
+		"4. Republic Act 7077 also known as A. Citizen Armed Forces of the Philippines Reservist Act.B. Department of National Defense.C. Is either 'A' or 'B' D. None of the above.",
+		"5. What are the 3 branches of NSTP?A. CWTS, LTS, ROTC✓B. CHED, TESDA DNDC. ROTC, CWTS, NGOD. None of the above.",
+		"6. What is the purpose of CHED?A. To help the citizens in agriculture.B. To provide food for the citizens.C. To promote and ensure quality higher education in the philippines.D. To ensure the safety of the students.",
+		"7. Community Organizing Participatory Action Research (COPAR) is—A. Continues and sustains the process of educating the people, working with people, and mobilizing with people.✓B. Helping the process of how education works.C. Creating something useful on what criteria you use.D. Helping students to accomplish their degree .",
+		"8. How many total NSTP training hours are required by law?A. 30 hoursB. 60 hoursC. 90 hoursD. 108 hours✓",
+		"9. What does CWTS focus on?A. Military training.B. Literacy and numeracy trainingC. Community service and development.✓D. Disaster response.",
+		"10. What does LTS mainly provide?A. Free books to students.B. Teaching literacy and numeracy to children and out-of-school youth.✓C. Military and defense training.D. Environmental protection programs.",
+		"11. What is the primary focus of ROTC?A. Leadership development and military training.✓B. Teaching in public schools.C. Community medical missions.D. Environmental campaigns.",
+		"12. What is one benefit of completing NSTP?A. Automatic government employment.B. Exemption from all physical education subjects.C. Becoming part of the National Service Reserve Corps.✓D. Receiving a military officer rank.",
+		"13. Which of the following is NOT an example of CWTS activity?A. Tree planting projects.B. Teaching literacy to children.C. Road construction and maintenance.D. Conducting clean-up drives.",
+		"14. What happens if a student fails NSTP?A. They will not be allowed to graduate.B. They must retake the NSTP program.✓C. They will be given a penalty fee.D. They will be required to take ROTC instead.",
+		"15. What value is emphasized in NSTP?A. Competition.B. Nationalism and social responsibility.✓C. Political influence.D. Business and entrepreneurship.",
+		"16. What government agency oversees NSTP in universities?A. Department of National Defense (DND)B. Commission on Higher Education (CHED)✓C. Department of Education (DepEd)D. National Economic and Development Authority (NEDA)",
+		"17. Which of the following best describes the Civic Welfare Training Service (CWTS)?A. Focuses on community service and development projects.✓B. Provides military training for students.C. Trains students to become police officers.D. Specializes in economic policies.",
+		"18. How many units are required to complete NSTP?A. 3 unitsB. 6 units✓C. 9 unitsD. 12 units",
+		"19. Which of the following is NOT an activity under CWTS?A. Blood donation drives.B. Tree-planting programs.C. Military tactical training.✓D. Feeding programs for the poor.",
+		"20. Under NSTP, which sector benefits the most from LTS programs?A. Private corporations.B. Government employees.C. Out-of-school youth and less-privileged individuals.✓D. Business owners.",
+		"21. Which of the following is an example of an environmental project under NSTP?A. Conducting training for military defense.B. Organizing voter education campaigns.C. Leading a community clean-up drive.✓D. Running a computer literacy program.",
+		"22. Why is the NSTP program important in nation-building?A. It helps produce skilled workers for businesses.B. It provides a venue for students to develop a sense of nationalism and service.✓C. It focuses on training students to become government officials.D. It teaches students how to run a business.",
+        "23. What year was Republic Act 9163 signed into law?A. 1995B. 2002✓C. 2010D. 2015",
+        "24. Which students are required to take NSTP?A. Only male students.B. All first-year college students.✓C. Students who want to join the military.D. Graduate students in business courses. ",
+        "25. What is the role of the National Service Reserve Corps (NSRC)?A. To provide trained individuals for disaster response and community service.✓B. To recruit students for mandatory military service.C. To manage all NSTP programs in schools.D. To serve as a government monitoring agency."
+				};
+        char correctAnswers[NUM_QUESTIONS] = {'D', 'D', 'C', 'B', 'B', 'C', 'B', 'D','D', 'C', 'B', 'D', 'B', 'C', 'C', 'C', 'B', 'C', 'D', 'D', 'D', 'C', 'C', 'C', 'B'};
+        char userAnswers[NUM_QUESTIONS];
+
+        // Ask Questions and Store Answers
+        for (int i = 0; i < NUM_QUESTIONS; i++) {
+            cout << questions[i] << "\n\n\t\t\t\t\t\tAnswer: ";
+            cin >> userAnswers[i];
+            cout << "\n";
+        }
+
+        // Review and Edit Answers
+
+
+        char reviewChoice;
+        int qNum;
+        while (true) {
+
+            cout << "\t\t\t\tWould you like to change an answer? (Y = Yes || N = No): ";
+            cin >> reviewChoice;
+            if (reviewChoice == 'N' || reviewChoice == 'n') {
+                break;
+            } else if(reviewChoice == 'Y' || reviewChoice == 'y'){
+            cout << "\t\t\t\tEnter the question number to edit (1-" << NUM_QUESTIONS << "): ";
+            cin >> qNum;
+
+            if (qNum >= 1 && qNum <= NUM_QUESTIONS) {
+                cout << "\n" << questions[qNum - 1] << "\n\n\t\t\t\t\t\tNew Answer: ";
+                cin >> userAnswers[qNum - 1];
+            } else {
+                cout << "\t\t\t\tInvalid question number! Try again.\n";
+            }
+        }
+        else{
+        	cout << "\t\t\t\tInvalid choices!! Y = Yes || N = No" << endl;
+		}
+        }
+
+        // Calculate Score
+        for (int i = 0; i < NUM_QUESTIONS; i++) {
+            if (toupper(userAnswers[i]) == correctAnswers[i]) {
+                nstp_score++;
+            }
+        }
+
+        system("cls");
+        cout << "You completed the National Service Training Program exam\n";
+        cout << "Final Score: " << nstp_score << "/" << NUM_QUESTIONS << endl;
+        cout << "Please wait...";
+        sleep(3);
+        nstp_taken = true;
+        system("cls");
+        exitprog = false;
+        userpage();
+}

@@ -1,0 +1,94 @@
+	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
+    system("cls");
+
+
+        cout << "Exam's Starting, Goodluck..." << endl;
+        sleep(1.5);
+        system("cls");
+
+        // Questions & Answers
+        SetConsoleTextAttribute(h,8);
+        cout << "\n                             ==================================================================================================================================================\n";
+        cout << "\n\t\t\t\tDIRECTIONS: PLEASE READ EACH QUESTION CAREFULLY AND THINK BEFORE YOU ANSWER. MAKE SURE TO FOLLOW ALL INSTRUCTIONS GIVEN. ALL ANSWERS MUST BE \n\t\t\t\t    WRITTEN IN CAPITAL LETTERS ONLY. FAILURE TO DO SO MAY RESULT IN YOUR ANSWER BEING MARKED INCORRECT. TAKE YOUR TIME AND DO YOUR BEST!\n" << endl;
+        cout << "                             ==================================================================================================================================================\n\n";
+        SetConsoleTextAttribute(h,15);
+        const int NUM_QUESTIONS = 25;
+        string questions[NUM_QUESTIONS] = {
+            "\t\t\t\t\t\t1. Which of the following is the correct syntax for including a user-defined header file in C++?\n\n\t\t\t\t\t\tA) #include <filename.h>\n\t\t\t\t\t\tB) #include 'filename'\n\t\t\t\t\t\tC) #include <filename>\n\t\t\t\t\t\tD) #include filename.h",
+            "\t\t\t\t\t\t2. Which of the following is used to terminate a C++ statement?\n\n\t\t\t\t\t\tA) :\n\t\t\t\t\t\tB) ;\n\t\t\t\t\t\tC) .\n\t\t\t\t\t\tD) ,",
+            "\t\t\t\t\t\t3. What is the default return type of the main() function in C++?\n\n\t\t\t\t\t\tA) int\n\t\t\t\t\t\tB) void\n\t\t\t\t\t\tC) float\n\t\t\t\t\t\tD) char",
+            "\t\t\t\t\t\t4. What is the purpose of a constructor in a C++ class?\n\n\t\t\t\t\t\tA) To destroy objects created by the class\n\t\t\t\t\t\tB) To initialize objects when they are created\n\t\t\t\t\t\tC) To allocate memory manually\n\t\t\t\t\t\tD) To call other classes",
+            "\t\t\t\t\t\t5. What does cin stand for in C++?\n\n\t\t\t\t\t\tA) Console Input\n\t\t\t\t\t\tB) Common Input\n\t\t\t\t\t\tC) Class Input\n\t\t\t\t\t\tD) Character Input",
+            "\t\t\t\t\t\t6. What is the correct syntax to declare a variable in C++?\n\n\t\t\t\t\t\tA) var int\n\t\t\t\t\t\tB) int x;\n\t\t\t\t\t\tC) x int;\n\t\t\t\t\t\tD) variable x;",
+            "\t\t\t\t\t\t7. Which of the following is a valid data type in C++?\n\n\t\t\t\t\t\tA) integer\n\t\t\t\t\t\tB) real\n\t\t\t\t\t\tC) double\n\t\t\t\t\t\tD) number",
+            "\t\t\t\t\t\t8. Which of the following loops in C++ is an entry-controlled loop?\n\n\t\t\t\t\t\tA) do-while loop\n\t\t\t\t\t\tB) while loop\n\t\t\t\t\t\tC) for loop\n\t\t\t\t\t\tD) Both b and c",
+            "\t\t\t\t\t\t9. Which keyword is used to define a constant variable in C++?\n\n\t\t\t\t\t\tA) define\n\t\t\t\t\t\tB) const\n\t\t\t\t\t\tC) static\n\t\t\t\t\t\tD) final",
+            "\t\t\t\t\t\t10. What is the size of an int variable in C++ (typically in 32-bit systems)?\n\n\t\t\t\t\t\tA) 2 bytes\n\t\t\t\t\t\tB) 4 bytes\n\t\t\t\t\t\tC) 8 bytes\n\t\t\t\t\t\tD) 1 byte",
+            "\t\t\t\t\t\t11. Which C++ feature allows a class to inherit properties and behaviors from another class?\n\n\t\t\t\t\t\tA) Polymorphism\n\t\t\t\t\t\tB) Encapsulation\n\t\t\t\t\t\tC) Inheritance\n\t\t\t\t\t\tD) Abstraction",
+            "\t\t\t\t\t\t12. Which operator is used for accessing the address of a variable?\n\n\t\t\t\t\t\tA)\n\t\t\t\t\t\tB) &\n\t\t\t\t\t\tC) ->\n\t\t\t\t\t\tD) @",
+            "\t\t\t\t\t\t13. What is the correct way to declare a pointer in C++?\n\n\t\t\t\t\t\tA) int ptr;\n\t\t\t\t\t\tB) int* ptr;\n\t\t\t\t\t\tC) ptr* int;\n\t\t\t\t\t\tD) int &ptr;",
+            "\t\t\t\t\t\t14. What happens if you do not explicitly define a destructor in your C++ class?\n\n\t\t\t\t\t\tA) The program crashes\n\t\t\t\t\t\tB) Nothing; destructors are not necessary\n\t\t\t\t\t\tC) The compiler provides a default destructor\n\t\t\t\t\t\tD) You must manually delete the object",
+            "\t\t\t\t\t\t15. Which keyword is used to exit a loop in C++?\n\n\t\t\t\t\t\tA) stop\n\t\t\t\t\t\tB) exit\n\t\t\t\t\t\tC) break\n\t\t\t\t\t\tD) return",
+            "\t\t\t\t\t\t16. What is the purpose of the new keyword in C++?\n\n\t\t\t\t\t\tA) To allocate memory dynamically\n\t\t\t\t\t\tB) To create a new variable\n\t\t\t\t\t\tC) To define a new function\n\t\t\t\t\t\tD) To create a loop",
+            "\t\t\t\t\t\t17. How do you declare a function in C++?\n\n\t\t\t\t\t\tA) function int sum();\n\t\t\t\t\t\tB) int sum();\n\t\t\t\t\t\tC) sum();\n\t\t\t\t\t\tD) declare int sum();",
+            "\t\t\t\t\t\t18. What is the default access specifier for a class member in C++?\n\n\t\t\t\t\t\tA) public\n\t\t\t\t\t\tB) private\n\t\t\t\t\t\tC) protected\n\t\t\t\t\t\tD) static",
+            "\t\t\t\t\t\t19. Which of the following is NOT a valid loop structure in C++?\n\n\t\t\t\t\t\tA) while\n\t\t\t\t\t\tB) do-while\n\t\t\t\t\t\tC) for\n\t\t\t\t\t\tD) repeat-until",
+            "\t\t\t\t\t\t20. How can you prevent a function from modifying an argument passed to it?\n\n\t\t\t\t\t\tA) const keyword\n\t\t\t\t\t\tB) static keyword\n\t\t\t\t\t\tC) volatile keyword\n\t\t\t\t\t\tD) mutable keyword",
+            "\t\t\t\t\t\t21. Which operator is used for dynamic memory deallocation in C++?\n\n\t\t\t\t\t\tA) delete\n\t\t\t\t\t\tB) remove\n\t\t\t\t\t\tC) free\n\t\t\t\t\t\tD) deallocate",
+            "\t\t\t\t\t\t22. What is the correct way to comment a single line in C++?\n\n\t\t\t\t\t\tA) /* This is a comment */\n\t\t\t\t\t\tB) // This is a comment\n\t\t\t\t\t\tC) # This is a comment\n\t\t\t\t\t\tD) -- This is a comment",
+            "\t\t\t\t\t\t23. What does endl do in C++?\n\n\t\t\t\t\t\tA) Ends the program\n\t\t\t\t\t\tB) Inserts a newline character\n\t\t\t\t\t\tC) Erases the previous line\n\t\t\t\t\t\tD) None of the above",
+            "\t\t\t\t\t\t24. Which concept allows multiple functions to have the same name but different parameters?\n\n\t\t\t\t\t\tA) Function overloading\n\t\t\t\t\t\tB) Function overriding\n\t\t\t\t\t\tC) Function hiding\n\t\t\t\t\t\tD) Function nesting",
+            "\t\t\t\t\t\t25. Which C++ access specifier makes class members accessible only within the class itself?\n\n\t\t\t\t\t\tA) public\n\t\t\t\t\t\tB) private\n\t\t\t\t\t\tC) protected\n\t\t\t\t\t\tD) global"
+        };
+        char correctAnswers[NUM_QUESTIONS] = {'B', 'B', 'A', 'B', 'A', 'B', 'C', 'D', 'B', 'B', 'C', 'B', 'B', 'C', 'C', 'A', 'B', 'B', 'D', 'A', 'A', 'B', 'B', 'A', 'B'};
+        char userAnswers[NUM_QUESTIONS];
+
+        // Ask Questions and Store Answers
+        for (int i = 0; i < NUM_QUESTIONS; i++) {
+            cout << questions[i] << "\n\n\t\t\t\t\t\tAnswer: ";
+            cin >> userAnswers[i];
+        }
+
+        // Review and Edit Answers
+
+
+        char reviewChoice;
+        int qNum;
+        while (true) {
+
+            cout << "\t\t\t\tWould you like to change an answer? (Y = Yes || N = No): ";
+            cin >> reviewChoice;
+            if (reviewChoice == 'N' || reviewChoice == 'n') {
+                break;
+            } else if(reviewChoice == 'Y' || reviewChoice == 'y'){
+            cout << "\t\t\t\tEnter the question number to edit (1-" << NUM_QUESTIONS << "): ";
+            cin >> qNum;
+
+            if (qNum >= 1 && qNum <= NUM_QUESTIONS) {
+                cout << "\n" << questions[qNum - 1] << "\n\n\t\t\t\t\t\tNew Answer: ";
+                cin >> userAnswers[qNum - 1];
+            } else {
+                cout << "\t\t\t\tInvalid question number! Try again.\n";
+            }
+        }
+        else{
+        	cout << "\t\t\t\tInvalid choices!! Y = Yes || N = No" << endl;
+		}
+        }
+        // Calculate Score
+        comprog_score = 0;
+        for (int i = 0; i < NUM_QUESTIONS; i++) {
+            if (toupper(userAnswers[i]) == correctAnswers[i]) {
+                comprog_score++;
+            }
+        }
+
+        system("cls");
+        cout << "You completed the Computer Programming exam!\n";
+        cout << "Final Score: " << comprog_score << "/" << NUM_QUESTIONS << endl;
+        cout << "Please wait...";
+        sleep(3);
+        comprog_taken = true;
+        system("cls");
+        exitprog = false;
+        userpage();

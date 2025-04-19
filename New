@@ -100,7 +100,7 @@ char ch;
 	int comprog_score = 0, purcomm_score = 0, pathfit_score = 0, nstp_score = 0, fildis_score = 0, artapp_score = 0, sts_score = 0, ethics_score = 0, discrete_score = 0;
 
 void loadingScreen() {
-	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
+HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 SetConsoleTextAttribute(h,14);
   cout << "\n\n\n";
   cout << "\t\t\t                 *                      *                                *                      *                     *                 *                           " << endl;
@@ -1029,7 +1029,117 @@ void nstp(){
 
 void artapp(){
 	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
-	cout << "this is art app!!!";
+	char choose;
+	system("cls");
+
+    cout << "This is Art Appreciation subject" << endl;
+    cout << "1. Take an exam" << endl;
+    cout << "2. Back" << endl;
+    cout << "Choose: ";
+    cin >> choose;
+
+    if (choose == '1') {
+        cout << "Exam's Starting, Goodluck..." << endl;
+        sleep(1.5);
+        system("cls");
+
+        // Questions & Answers
+        SetConsoleTextAttribute(h,6);
+        cout << "\n                             ==================================================================================================================================================\n";
+        cout << "\n\t\t\t\tDIRECTIONS: PLEASE READ EACH QUESTION CAREFULLY AND THINK BEFORE YOU ANSWER. MAKE SURE TO FOLLOW ALL INSTRUCTIONS GIVEN. ALL ANSWERS MUST BE \n\t\t\t\t    WRITTEN IN CAPITAL LETTERS ONLY. FAILURE TO DO SO MAY RESULT IN YOUR ANSWER BEING MARKED INCORRECT. TAKE YOUR TIME AND DO YOUR BEST!\n" << endl;
+        cout << "                             ==================================================================================================================================================\n\n";
+        SetConsoleTextAttribute(h,15);
+        const int NUM_QUESTIONS = 25;
+        string questions[NUM_QUESTIONS] = {
+		"\t\t\t\t\t\t1. Who championed the 'art for art's sake' aesthetic?\n\n\t\t\t\t\t\t\tA.John Keats\n\t\t\t\t\t\t\tB.Bernard Shaw\n\t\t\t\t\t\t\tC.Lourdes Sanchez\n\t\t\t\t\t\t\tD.Oscar Wilde",
+		"\t\t\t\t\t\t2. Which value of art emphasizes improving the moral fiber of society?\n\n\t\t\t\t\t\t\tA.Aesthetic value\n\t\t\t\t\t\t\tB.Religious value\n\t\t\t\t\t\t\tC.Didactic value\n\t\t\t\t\t\t\tD.Historical value",
+		"\t\t\t\t\t\t3. What historical event is cited as an example of art with historical value?\n\n\t\t\t\t\t\t\tA.The publication of Noli Me Tangere\n\t\t\t\t\t\t\tB.The painting of the First Holy Mass at Limasawa\n\t\t\t\t\t\t\tC.The construction of a church during the Medieval Age\n\t\t\t\t\t\t\tD.The creation of a porcelain figure",
+		"\t\t\t\t\t\t4. Which artist's work is mentioned as an example of socio-political value?\n\n\t\t\t\t\t\t\tA.John Keats\n\t\t\t\t\t\t\tB.Oscar Wilde\n\t\t\t\t\t\t\tC.Jose Rizal\n\t\t\t\t\t\t\tD.Lourdes Sanchez",
+		"\t\t\t\t\t\t5. What is an example of pragmatic value, as described in the text?\n\n\t\t\t\t\t\t\tA.A painting that is aesthetically pleasing\n\t\t\t\t\t\t\tB.A painting that sells for a fortune\n\t\t\t\t\t\t\tC.A porcelain figure used as a paperweight\n\t\t\t\t\t\t\tD.A painting that increases awareness of God",
+		"\t\t\t\t\t\t6. What type of value is present in art that informs us about the Earth, outer space, psychology, and numbers?\n\n\t\t\t\t\t\t\tA.Commercial value\n\t\t\t\t\t\t\tB.Scientific value\n\t\t\t\t\t\t\tC.Pragmatic value\n\t\t\t\t\t\t\tD.Didactic value",
+		"\t\t\t\t\t\t7. What were the Impressionists (Monet, Renoir, and Manet) primarily seeking to capture in their art?\n\n\t\t\t\t\t\t\tA.The artist's conscious intentions and emotions\n\t\t\t\t\t\t\tB.The symbolic representation of human desires\n\t\t\t\t\t\t\tC.Immediate visual impressions, impersonally\n\t\t\t\t\t\t\tD.The unconscious drives and inhibitions of the artist",
+		"\t\t\t\t\t\t8. From a psychoanalytic perspective (Freud), how are human intentions manifested in art?\n\n\t\t\t\t\t\t\tA.Directly and explicitly in the artwork's subject matter\n\t\t\t\t\t\t\tB.Through conscious choices of color and composition\n\t\t\t\t\t\t\tC.As secondary manifestations, often symbolic\n\t\t\t\t\t\t\tD.Primarily through the artist's written statements",
+		"\t\t\t\t\t\t9. Psychoanalysis, as applied to art interpretation, suggests that the unearthing of what elements in the artwork may help in its interpretation?\n\n\t\t\t\t\t\t\tA.The artist's biography and life experiences\n\t\t\t\t\t\t\tB.Unconscious drives, desires, wishes, urges, depressions, and inhibitions\n\t\t\t\t\t\t\tC.The historical and social context of the artwork's creation\n\t\t\t\t\t\t\tD.The artist's conscious intentions and artistic techniques",
+		"\t\t\t\t\t\t10. What is the relationship between imitative and pleasurable qualities in art?\n\n\t\t\t\t\t\t\tA.They are mutually exclusive.\n\t\t\t\t\t\t\tB.They are often found together.\n\t\t\t\t\t\t\tC.Pleasure is only derived from non-imitative art.\n\t\t\t\t\t\t\tD.Imitative art is always superior to non-imitative art.",
+		"\t\t\t\t\t\t11. What does this perspective emphasize?\n\n\t\t\t\t\t\t\tA.The commercial value of art\n\t\t\t\t\t\t\tB.The educational function of art\n\t\t\t\t\t\t\tC. Art as an outlet for uncontrolled expression of energy\n\t\t\t\t\t\t\tD.The purely aesthetic aspects of art",
+		"\t\t\t\t\t\t12. From a psychoanalytic perspective (Freud), how are human intentions manifested in art?\n\n\t\t\t\t\t\t\tA.Directly and explicitly in the artwork's subject matter\n\t\t\t\t\t\t\tB.Through conscious choices of color and composition\n\t\t\t\t\t\t\tC.As secondary manifestations, often symbolic\n\t\t\t\t\t\t\tD.Primarily through the artist's written statements",
+		"\t\t\t\t\t\t13. Can art appreciation be taught?\n\n\t\t\t\t\t\t\tA.Yes, it can be taught directly through specific techniques.\n\t\t\t\t\t\t\tB. No, it is solely based on innate talent and cannot be taught.\n\t\t\t\t\t\t\tC.It can be taught, but only indirectly through experience.\n\t\t\t\t\t\t\tD.It can be taught, but only through the study of art history.",
+		"\t\t\t\t\t\t14. What is the main point about explaining art?\n\n\t\t\t\t\t\t\tA.A complete explanation of a great painting is always possible.\n\t\t\t\t\t\t\tB.Explanations are unnecessary for appreciating art.\n\t\t\t\t\t\t\tC.Explaining art can sometimes do irreparable harm.\n\t\t\t\t\t\t\tD.The best explanations of art come from art critics",
+		"\t\t\t\t\t\t15. Which one is described as 'built into us as a part of our human legacy'?\n\n\t\t\t\t\t\t\tA.Secondary language\n\t\t\t\t\t\t\tB.Tertiary language\n\t\t\t\t\t\t\tC.Primary language\n\t\t\t\t\t\t\tD.Critical language",
+		"\t\t\t\t\t\t16. What happens to an artist's work if they ignore their connection to society and environment?\n\n\t\t\t\t\t\t\tA.Their work becomes more innovative and unique.\n\t\t\t\t\t\t\tB.Their work becomes irrelevant and unintelligible.\n\t\t\t\t\t\t\tC.Their work gains more popularity.\n\t\t\t\t\t\t\tD.Their work is unaffected",
+		"\t\t\t\t\t\t17. Which of the following factors are mentioned as influencing artists, according to their place of origin and ethnicity?\n\n\t\t\t\t\t\t\tA.Technological factors\n\t\t\t\t\t\t\tB.Religious factors\n\t\t\t\t\t\t\tC.Geographical factors\n\t\t\t\t\t\t\tD.Historical factors",
+		"\t\t\t\t\t\t18. What type of factors contribute to the development or change in art style, according to the text?\n\n\t\t\t\t\t\t\tA.Only religious factors\n\t\t\t\t\t\t\tB.Only political factors\n\t\t\t\t\t\t\tC.Political, psychological, and sociological factors\n\t\t\t\t\t\t\tD.Only historical factors",
+        "\t\t\t\t\t\t19. Which religious movements are specifically mentioned as having influenced changes in art styles?\n\n\t\t\t\t\t\t\tA.Buddhism and Hinduism\n\t\t\t\t\t\t\tB.Christianity, the Counter-Reformation, and Humanism\n\t\t\t\t\t\t\tC.Islam and Judaism\n\t\t\t\t\t\t\tD.Confucianism and Taoism",
+        "\t\t\t\t\t\t20. What is mentioned as a technological factor that produces new art forms?\n\n\t\t\t\t\t\t\tA.The invention of the printing press\n\t\t\t\t\t\t\tB.The development of new materials like plastic, plaster, and rubber\n\t\t\t\t\t\t\tC.The use of oil paints\n\t\t\t\t\t\t\tD.The rise of digital art",
+        "\t\t\t\t\t\t21. Which of the following is NOT explicitly listed as an example?\n\n\t\t\t\t\t\t\tA.Venus\n\t\t\t\t\t\t\tB.Mona Lisa\n\t\t\t\t\t\t\tC.Saskia\n\t\t\t\t\t\t\tD.Michelangelo's David",
+        "\t\t\t\t\t\t22. What is the approximate age of the earliest statues of women mentioned in the text?\n\n\t\t\t\t\t\t\tA.2000 B.C.\n\t\t\t\t\t\t\tB.20,000 B.C.\n\t\t\t\t\t\t\tC.25,000 B.C.\n\t\t\t\t\t\t\tD.10,000 B.C.",
+        "\t\t\t\t\t\t23. Why is the Venus of Willendorf considered 'too small and ugly'?\n\n\t\t\t\t\t\t\tA.It does not meet modern standards of beauty.\n\t\t\t\t\t\t\tB.It is made of inferior materials.\n\t\t\t\t\t\t\tC.It lacks the idealized proportions of classical sculptures.\n\t\t\t\t\t\t\tD.It is an abstract and unconventional representation.",
+        "\t\t\t\t\t\t24. What is the significance of the Venus of Willendorf's exaggerated features?\n\n\t\t\t\t\t\t\tA.They reflect the artist's personal preferences.\n\t\t\t\t\t\t\tB.They represent the artist's skill in realistic portraiture.\n\t\t\t\t\t\t\tC.They are symbolic of fertility and the different stages of a woman's life.\n\t\t\t\t\t\t\tD.They were intended to be humorous or grotesque.",
+        "\t\t\t\t\t\t25. The text describes Aphrodite as:\n\n\t\t\t\t\t\t\tA.A goddess of war and conflict\n\t\t\t\t\t\t\tB.The first lifelike statue that shows the female figure in three dimensions\n\t\t\t\t\t\t\tC.A goddess of the harvest and fertility\n\t\t\t\t\t\t\tD.A goddess of wisdom and justice",
+				};
+        char correctAnswers[NUM_QUESTIONS] = {'D', 'C', 'B','C','C','B','C','C','B','B','C','C','B','C','C','B','C','C','B','B','D','C','D','C','B'};
+        char userAnswers[NUM_QUESTIONS];
+
+        // Ask Questions and Store Answers
+        for (int i = 0; i < NUM_QUESTIONS; i++) {
+            cout << questions[i] << "\n\n\t\t\t\t\t\tAnswer: ";
+            cin >> userAnswers[i];
+            cout << "\n";
+        }
+
+        // Review and Edit Answers
+
+
+        char reviewChoice;
+        int qNum;
+        while (true) {
+
+            cout << "\t\t\t\tWould you like to change an answer? (Y = Yes || N = No): ";
+            cin >> reviewChoice;
+            if (reviewChoice == 'N' || reviewChoice == 'n') {
+                break;
+            } else if(reviewChoice == 'Y' || reviewChoice == 'y'){
+            cout << "\t\t\t\tEnter the question number to edit (1-" << NUM_QUESTIONS << "): ";
+            cin >> qNum;
+
+            if (qNum >= 1 && qNum <= NUM_QUESTIONS) {
+                cout << "\n" << questions[qNum - 1] << "\n\n\t\t\t\t\t\tNew Answer: ";
+                cin >> userAnswers[qNum - 1];
+            } else {
+                cout << "\t\t\t\tInvalid question number! Try again.\n";
+            }
+        }
+        else{
+        	cout << "\t\t\t\tInvalid choices!! Y = Yes || N = No" << endl;
+		}
+        }
+
+        // Calculate Score
+        for (int i = 0; i < NUM_QUESTIONS; i++) {
+            if (toupper(userAnswers[i]) == correctAnswers[i]) {
+                artapp_score++;
+            }
+        }
+
+        system("cls");
+        cout << "You completed the Science, Technology and Society exam\n";
+        cout << "Final Score: " << artapp_score << "/" << NUM_QUESTIONS << endl;
+        cout << "Please wait...";
+        sleep(3);
+        artapp_taken = true;
+        system("cls");
+        exitprog = false;
+        userpage();
+
+    } else if (choose == '2') {
+        cout << "Returning to Menu..." << endl;
+        system("cls");
+        sleep(1.5);
+        exitprog = false;
+        userpage();
+    } else {
+        cout << "INVALID, PLEASE CHOOSE 1 or 2" << endl;
+    }
 }
 
 void sts(){
@@ -1594,7 +1704,7 @@ void purcomm() {
         system("cls");
         sleep(1.5);
         exitprog = false;
-        userpage;
+        userpage();
     } else {
         cout << "INVALID, PLEASE CHOOSE 1 or 2" << endl;
     }
@@ -1960,7 +2070,7 @@ void userpage(){
 
         char cont;
         switch(choice) {
-        case 1:
+        case 1: // Purcom
           system("cls");
           SetConsoleTextAttribute(h,13);
    			cout << "\t\t\t\t\t\t|\t\t|\t\t\t\t\t\t\t\t\t\t|\t\t|" << endl;
@@ -2011,7 +2121,7 @@ void userpage(){
             }
             break;
 
-        case 2:
+        case 2: // Art App
             system("cls");
             SetConsoleTextAttribute(h,6);
    			cout << "\t\t\t\t\t\t|\t\t|\t\t\t\t\t\t\t\t\t\t|\t\t|" << endl;
@@ -2062,7 +2172,7 @@ void userpage(){
             }
             break;
 
-        case 3:
+        case 3: // STS
             system("cls");
             SetConsoleTextAttribute(h,7);
    			cout << "\t\t\t\t\t\t|\t\t|\t\t\t\t\t\t\t\t\t\t|\t\t|" << endl;
@@ -2115,7 +2225,7 @@ void userpage(){
           break;
 
 
-        case 4: //ethics
+        case 4: //Ethics
          system("cls");
          SetConsoleTextAttribute(h,12);
    			cout << "\t\t\t\t\t\t|\t\t|\t\t\t\t\t\t\t\t\t\t|\t\t|" << endl;
@@ -2146,22 +2256,21 @@ void userpage(){
        	 	cin >> cont;
          	if(cont == '1'){
          		if(ethics_taken == true){
-         		cout << "\n\n\n\n\t\t\t\t\t\t\t You already take the exam\n";
+         		cout << "\n\n\n\n\t\t\t\t\t\t\t You already taken the Applied Ethics exam\n";
          		sleep(1);
          		system("cls");
-			 }
-			 else if(ethics_taken == false){
+			 }else if(ethics_taken == false){
          	cout << "\n\n\n\n\t\t\t\t\t\t\t Loading..." << endl;
-         	sleep(1);
          	exitprog = true;
+            system("cls");
          	ethics();
+
 		 }
 		 } else if(cont == '2'){
 		 	cout << "\n\n\n\n\t\t\t\t\t\t\t Returning to subject selection...";
 		 	sleep(1.5);
 		 	system("cls");
 		 	exitprog = false;
-
 		 } else {
 		 	cout << "\n\n\n\n\t\t\t\t\t\t\t Invalid Operator" << endl;
 		 }
@@ -2192,7 +2301,7 @@ void userpage(){
    			SetConsoleTextAttribute(h,15);
    			cout << "\t\t\t\t=================================================================================================================================================\n\n\n\n" << endl;
          	SetConsoleTextAttribute(h,2);
-			 cout << "\t\t\t\t\t\t\t\t\t      Do you want to take Discrete Math? (1 = Yes, 2 = No) \n\n\n\n" << endl;
+			 cout << "\t\t\t\t\t\t\t\t\t      Do you want to take Discrete Mathemathics? (1 = Yes, 2 = No) \n\n\n\n" << endl;
          	SetConsoleTextAttribute(h,15);
          	cout << "\t\t\t\t=================================================================================================================================================\n\n\n\n" << endl;
         	SetConsoleTextAttribute(h,2);
@@ -2200,18 +2309,18 @@ void userpage(){
          	cin >> cont;
          	if(cont == '1'){
 
-         		if(discrete_taken = true){
+         		if(discrete_taken == true){
          		cout << "\n\n\n\n\t\t\t\t\t\t\t You already take the exam\n";
          		cout << "\n\n\n\n\t\t\t\t\t\t\t Returning to subject....";
          		sleep(1);
          		system("cls");
-			 }
-			 } else if(discrete_taken = false){
+			 }else if(discrete_taken == false){
 			cout << "\n\n\n\n\t\t\t\t\t\t\t Loading..." << endl;
          	exitprog = true;
             system("cls");
          	discrete();
-			 }  else if(cont == '2'){
+			 }
+			 }else if(cont == '2'){
 		 	cout << "\n\n\n\n\t\t\t\t\t\t\t Returning to subject selection...";
 		 	sleep(1.5);
 		 	system("cls");
@@ -2220,8 +2329,8 @@ void userpage(){
 		 	cout << "\n\n\n\n\t\t\t\t\t\t\t Invalid Operator" << endl;
 		 }
 		 break;
-		 
-		 
+
+
 		 case 6: //comprog
 			system("cls");
 			SetConsoleTextAttribute(h,8);
@@ -2245,7 +2354,7 @@ void userpage(){
    			SetConsoleTextAttribute(h,15);
    			cout << "\t\t\t\t=================================================================================================================================================\n\n\n\n" << endl;
          	SetConsoleTextAttribute(h,8);
-			cout << "\t\t\t\t\t\t\t\t\t Do you want to take Computer Programming? (1 = Yes, 2 = No) \n\n\n\n" << endl;
+			cout << "\t\t\t\t\t\t\t\t\t Do you want to take Computer Programming 2? (1 = Yes, 2 = No) \n\n\n\n" << endl;
          	SetConsoleTextAttribute(h,15);
          	cout << "\t\t\t\t=================================================================================================================================================\n\n\n\n" << endl;
         	SetConsoleTextAttribute(h,8);
@@ -2276,8 +2385,6 @@ void userpage(){
 
 				 break;
 
-				 
-				 
 		case 7: //fildis
 			system("cls");
 			SetConsoleTextAttribute(h,5);
@@ -2385,8 +2492,6 @@ void userpage(){
 
 		 break;
 
-		 
-		 
 		 	case 9: //pathfit
 		 	system("cls");
 		 	SetConsoleTextAttribute(h,1);

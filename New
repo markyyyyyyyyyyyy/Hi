@@ -862,61 +862,12 @@ cin.get();
 SetConsoleTextAttribute(h,15);
 system("cls");
 }
-void sub_grade() {
-    char select;
-    int comprog_grade = ((float)comprog_score / 5) * 50 + 50;
-    int purcomm_grade = ((float)purcomm_score / 5) * 50 + 50;
-    int pathfit_grade = ((float)pathfit_score / 5) * 50 + 50;
-    int nstp_grade = ((float)nstp_score / 5) * 50 + 50;
-    int fildis_grade = ((float)fildis_score / 5) * 50 + 50;
-    int artapp_grade = ((float)pathfit_score / 5) * 50 + 50;
-    int sts_grade = ((float)sts_score / 5) * 50 + 50;
-    int ethics_grade = ((float)ethics_score / 5) * 50 + 50;
-    int discrete_grade = ((float)discrete_score / 5) * 50 + 50;
-    cout << "\tHere's your Grades of every subject:" << endl;
-    cout << " Subject:\t\t\t\t\t";
-    cout << "Grades:\n";
-    cout << " Purposive Communication\t\t"<< purcomm_grade << "%" << endl;
-    cout << " Art Appreciation\t" << artapp_grade << "%" << endl;
-    cout << " Science, Technology and Society\t\t\t" << sts_grade << "%" << endl;
-    cout << " Applied Ethics\t\t\t" << ethics_grade << "%" << endl;
-    cout << " Discrete Mathematics\t\t\t" << discrete_grade << "%" << endl;
-    cout << " Computer Programming 2\t\t\t" << comprog_grade << "%" << endl;
-    cout << " Filipino sa iba't ibang Disiplina\t\t\t" << fildis_grade << "%" << endl;
-    cout << " National Service Training Program\t\t\t" << nstp_grade << "%" << endl;
-    cout << " PATHFIT2 \t\t\t" << pathfit_grade << "%" << endl;
-    cout << "(1 = back to subject selection, 2 = back to scores)" << endl;
-    cout << "Choose: ";
-    cin >> select;
 
-    if(select == '1') {
-        cout << "Returning to subject selection..." << endl;
-        sleep(1.5);
-        system("cls");
-        exitprog = false;
-        userpage();
-    } else if(select == '2') {
-        cout << "Returning to scores..." << endl;
-        sleep(1.5);
-        system("cls");
-        subscore();
-    } else {
-        cout << "\nInvalid Operator!!" << endl;
-    }
-}
+
+
 
 void fildis(){
 	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
-	char choose;
-    system("cls");
-
-    cout << "This is Filipino sa Iba't ibang Disiplina subject" << endl;
-    cout << "1. Take an exam" << endl;
-    cout << "2. Back" << endl;
-    cout << "Choose: ";
-    cin >> choose;
-
-    if (choose == '1') {
         cout << "Exam's Starting, Goodluck..." << endl;
         sleep(1.5);
         system("cls");
@@ -1009,15 +960,7 @@ void fildis(){
         exitprog = false;
         userpage();
 
-    } else if (choose == '2') {
-        cout << "Returning to Menu..." << endl;
-        system("cls");
-        sleep(1.5);
-        exitprog = false;
-        userpage();
-    } else {
-        cout << "INVALID, PLEASE CHOOSE 1 or 2" << endl;
-    }
+
 
 }
 
@@ -1032,13 +975,8 @@ void artapp(){
 	char choose;
 	system("cls");
 
-    cout << "This is Art Appreciation subject" << endl;
-    cout << "1. Take an exam" << endl;
-    cout << "2. Back" << endl;
-    cout << "Choose: ";
-    cin >> choose;
 
-    if (choose == '1') {
+
         cout << "Exam's Starting, Goodluck..." << endl;
         sleep(1.5);
         system("cls");
@@ -1130,30 +1068,14 @@ void artapp(){
         system("cls");
         exitprog = false;
         userpage();
-
-    } else if (choose == '2') {
-        cout << "Returning to Menu..." << endl;
-        system("cls");
-        sleep(1.5);
-        exitprog = false;
-        userpage();
-    } else {
-        cout << "INVALID, PLEASE CHOOSE 1 or 2" << endl;
-    }
 }
 
 void sts(){
 	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
-	char choose;
     system("cls");
 
-    cout << "This is Science, Technology and Society subject" << endl;
-    cout << "1. Take an exam" << endl;
-    cout << "2. Back" << endl;
-    cout << "Choose: ";
-    cin >> choose;
 
-    if (choose == '1') {
+
         cout << "Exam's Starting, Goodluck..." << endl;
         sleep(1.5);
         system("cls");
@@ -1246,30 +1168,13 @@ void sts(){
         exitprog = false;
         userpage();
 
-    } else if (choose == '2') {
-        cout << "Returning to Menu..." << endl;
-        system("cls");
-        sleep(1.5);
-        exitprog = false;
-        userpage();
-    } else {
-        cout << "INVALID, PLEASE CHOOSE 1 or 2" << endl;
-    }
-
 }
 
 void ethics(){
 	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
-	char choose;
     system("cls");
 
-    cout << "This is Applied Ethics subject" << endl;
-    cout << "1. Take an exam" << endl;
-    cout << "2. Back" << endl;
-    cout << "Choose: ";
-    cin >> choose;
 
-    if (choose == '1') {
         cout << "Exam's Starting, Goodluck..." << endl;
         sleep(1.5);
         system("cls");
@@ -1362,15 +1267,6 @@ void ethics(){
         exitprog = false;
         userpage();
 
-    } else if (choose == '2') {
-        cout << "Returning to Menu..." << endl;
-        system("cls");
-        sleep(1.5);
-        exitprog = false;
-        userpage();
-    } else {
-        cout << "INVALID, PLEASE CHOOSE 1 or 2" << endl;
-    }
 }
 
 
@@ -1385,16 +1281,8 @@ void discrete(){
 
 void pathfit(){
 	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
-	char choose;
     system("cls");
 
-    cout << "This is PATHFIT subject" << endl;
-    cout << "1. Take an exam" << endl;
-    cout << "2. Back" << endl;
-    cout << "Choose: ";
-    cin >> choose;
-
-    if (choose == '1') {
         cout << "Exam's Starting, Goodluck..." << endl;
         sleep(1.5);
         system("cls");
@@ -1487,30 +1375,15 @@ void pathfit(){
         exitprog = false;
         userpage();
 
-    } else if (choose == '2') {
-        cout << "Returning to Menu..." << endl;
-        system("cls");
-        sleep(1.5);
-        exitprog = false;
-        userpage();
-    } else {
-        cout << "INVALID, PLEASE CHOOSE 1 or 2" << endl;
-    }
+
 }
 
 
 void comprog() {
 	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
-    char choose;
     system("cls");
 
-    cout << "This is Computer Programming subject" << endl;
-    cout << "1. Take an exam" << endl;
-    cout << "2. Back" << endl;
-    cout << "Choose: ";
-    cin >> choose;
 
-    if (choose == '1') {
         cout << "Exam's Starting, Goodluck..." << endl;
         sleep(1.5);
         system("cls");
@@ -1583,30 +1456,13 @@ void comprog() {
         exitprog = false;
         userpage();
 
-    } else if (choose == '2') {
-        cout << "Returning to Menu..." << endl;
-        system("cls");
-        sleep(1.5);
-        exitprog = false;
-        userpage();
-    } else {
-        cout << "INVALID, PLEASE CHOOSE 1 or 2" << endl;
-    }
 }
 
 
 void purcomm() {
 	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
-    char choose;
     system("cls");
 
-    cout << "This is Purposive Communication subject" << endl;
-    cout << "1. Take an exam" << endl;
-    cout << "2. Back" << endl;
-    cout << "Choose: ";
-    cin >> choose;
-
-    if (choose == '1') {
         cout << "Exam's Starting, Goodluck..." << endl;
         sleep(1.5);
         system("cls");
@@ -1698,20 +1554,18 @@ void purcomm() {
         system("cls");
         exitprog = false;
         userpage();
-
-    } else if (choose == '2') {
-        cout << "Returning to Menu..." << endl;
-        system("cls");
-        sleep(1.5);
-        exitprog = false;
-        userpage();
-    } else {
-        cout << "INVALID, PLEASE CHOOSE 1 or 2" << endl;
-    }
-
-}
+        }
 
 void subscore() {
+    int comprog_grade = ((float)comprog_score / 5) * 50 + 50;
+    int purcomm_grade = ((float)purcomm_score / 5) * 50 + 50;
+    int pathfit_grade = ((float)pathfit_score / 5) * 50 + 50;
+    int nstp_grade = ((float)nstp_score / 5) * 50 + 50;
+    int fildis_grade = ((float)fildis_score / 5) * 50 + 50;
+    int artapp_grade = ((float)pathfit_score / 5) * 50 + 50;
+    int sts_grade = ((float)sts_score / 5) * 50 + 50;
+    int ethics_grade = ((float)ethics_score / 5) * 50 + 50;
+    int discrete_grade = ((float)discrete_score / 5) * 50 + 50;
 	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
     char select;
     system("cls");
@@ -1742,47 +1596,58 @@ void subscore() {
     SetConsoleTextAttribute(h,15);
     cout << "                                                                    Subject:                                                      ";
 	SetConsoleTextAttribute(h,14);
-	cout << "Scores\n\n";
+	cout << "Scores \t\t";
+	cout << "Grades \n\n";
 	SetConsoleTextAttribute(h,15);
     cout << "                                                                         Purposive Communication                                   ";
 	SetConsoleTextAttribute(h,14);
-	cout << purcomm_score << "/25" << endl;
+	cout << purcomm_score << "/25 \t\t";
+	cout << purcomm_grade << "%" << endl;
 	SetConsoleTextAttribute(h,15);
     cout << "                                                                         Art Appreciation                                          ";
     SetConsoleTextAttribute(h,14);
-	cout << artapp_score << "/25" << endl;
+	cout << artapp_score << "/25 \t\t";
+	cout << artapp_grade << "%" << endl;
 	SetConsoleTextAttribute(h,15);
     cout << "                                                                         Science and Technology (ST) and Society                   ";
 	SetConsoleTextAttribute(h,14);
-	cout << sts_score << "/25" << endl;
+	cout << sts_score << "/25 \t\t";
+	cout << sts_grade << "%" << endl;
 	SetConsoleTextAttribute(h,15);
     cout << "                                                                         Applied Ethics                                            ";
 	SetConsoleTextAttribute(h,14);
-	cout << ethics_score << "/25" << endl;
+	cout << ethics_score << "/25 \t\t";
+	cout << ethics_grade << "%" << endl;
 	SetConsoleTextAttribute(h,15);
     cout << "                                                                         Discrete Mathemathics                                     ";
 	SetConsoleTextAttribute(h,14);
-	cout << discrete_score << "/25" << endl;
+	cout << discrete_score << "/25 \t\t";
+	cout << discrete_grade << "%" << endl;
 	SetConsoleTextAttribute(h,15);
     cout << "                                                                         Computer Programming 2                                    ";
 	SetConsoleTextAttribute(h,14);
-	cout << comprog_score << "/25" << endl;
+	cout << comprog_score << "/25 \t\t";
+	cout << comprog_grade << "%" << endl;
 	SetConsoleTextAttribute(h,15);
     cout << "                                                                         Filipino sa iba't ibang Disiplina                         ";
 	SetConsoleTextAttribute(h,14);
-	cout << fildis_score << "/25" << endl;
+	cout << fildis_score << "/25 \t\t";
+	cout << fildis_grade << "%" << endl;
 	SetConsoleTextAttribute(h,15);
     cout << "                                                                         National Service Training Program                         ";
 	SetConsoleTextAttribute(h,14);
-	cout << nstp_score << "/25" << endl;
+	cout << nstp_score << "/25 \t\t";
+	cout << nstp_grade << "%" << endl;
 	SetConsoleTextAttribute(h,15);
     cout << "                                                                         PATHFIT2                                                  ";
 	SetConsoleTextAttribute(h,14);
-	cout << pathfit_score << "/25" << endl;
+	cout << pathfit_score << "/25 \t\t";
+	cout << pathfit_grade << "%" << endl;
     SetConsoleTextAttribute(h,3);
     cout << "\n\n\n\n\t\t\t\t================================================================================================================================================\n\n\n";
     SetConsoleTextAttribute(h,15);
-	cout << "\t\t\t\t\t\t\t\t    Do you want to go back to subject selection? (1 = Yes, 2 = Check Grades)" << endl;
+    system("break");
+	cout << "\t\t\t\t\t\t\t\t    Do you want to go back to subject selection? (1 = Yes || 2 = Exit LMS)" << endl;
     cout << "\t\t\t\t\t\t\t\t    Choose: ";
     cin >> select;
     if(select == '1') {
@@ -1791,13 +1656,12 @@ void subscore() {
         exitprog = false;
         system("cls");
         userpage();
-    } else if(select == '2') {
-        cout << "\n\n\n\n\t\t\t\t\t\t\t Returning to grades..." << endl;
-        sleep(1.5);
-        system("cls");
-        sub_grade();
-    } else {
-        cout << "\n\n\n\n\t\t\t\t\t\t\t Invalid! please choose 1 or 2" << endl;
+    } else if(select == '2')
+    {
+        exit;
+    }
+    else{
+        cout << "\n\n\n\n\t\t\t\t\t\t\t Invalid!" << endl;
     }
 }
 
@@ -2261,6 +2125,7 @@ void userpage(){
          		system("cls");
 			 }else if(ethics_taken == false){
          	cout << "\n\n\n\n\t\t\t\t\t\t\t Loading..." << endl;
+         	sleep(1);
          	exitprog = true;
             system("cls");
          	ethics();

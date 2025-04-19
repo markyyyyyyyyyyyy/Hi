@@ -2,8 +2,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <windows.h>
-#include <mysql.h>
-#include <mysqld_error.h>
+
 #include <conio.h>
 #include <fstream>
 #include <vector>
@@ -14,8 +13,7 @@ struct User {
     string password;
 };
 
-string HOST[] = "localhost";
-string PASSWORD[] = "gerbolingo";
+
 
 
 void userpage();
@@ -42,7 +40,7 @@ void adminpage(){
 
 
       while(!closeprog){
-	  
+
         cout << "\n\t\t1. View Student";
         cout << "\n\t\t2. Create User";
         cout << "\n\t\t3. Update Password";
@@ -53,44 +51,44 @@ void adminpage(){
         cin >> choice;
 
         switch (choice) {
-            case 1: 
+            case 1:
                   closeprog = true;
 			      selectUser(); break;
-            case 2: 
+            case 2:
             closeprog = true;
 			createUser(); break;
-            case 3: 
+            case 3:
 			closeprog = true;
 			updateUser(); break;
             case 4:
 			closeprog = true;
 			deleteUser(); break;
-            case 5: break; 
+            case 5: break;
             default: cout << "\n\t\tInvalid choice.\n"; system("pause");
         }
     }
 
-   
+
 }
 
 void selectUser(){
-	
+
 }
 
 
 void createUser(){
-	
+
 }
 
 void updateUser(){
-	
+
 }
 
 void deleteUser(){
-	
+
 }
 
-	
+
 //subject menu and subject taken
 bool exitprog = false, comprog_taken = false, purcomm_taken = false, pathfit_taken = false, nstp_taken = false, fildis_taken = false, artapp_taken = false, sts_taken = false, ethics_taken = false, discrete_taken = false;
 //global name
@@ -106,7 +104,7 @@ void loadingScreen() {
 SetConsoleTextAttribute(h,14);
   cout << "\n\n\n";
   cout << "\t\t\t                 *                      *                                *                      *                     *                 *                           " << endl;
-  cout << "\t\t\t                               *                          *                      *                            *            *                   *             " << endl; 
+  cout << "\t\t\t                               *                          *                      *                            *            *                   *             " << endl;
   cout << "\t\t\t                                               *                    *                        *                                     *                      " << endl;
   cout << "\t\t\t                         *                                   *                                       *                   *                   *               " << endl;
   cout << "\t\t\t             *                      *               *                        *            *                     *                 *                  *         \n" << endl;
@@ -169,7 +167,7 @@ SetConsoleTextAttribute(h,14);
   SetConsoleTextAttribute(h,15);
   cout << "\t\t\t\t   --      --      --      --      --      --      --      --      --      --      --      --      --      --      --      --      --      --   \n\n\n\n" << endl;
   SetConsoleTextAttribute(h,3);
-  cout << "\t\t\t\t=================================================================================================================================================\n\n\n\n";  
+  cout << "\t\t\t\t=================================================================================================================================================\n\n\n\n";
   SetConsoleTextAttribute(h,15);
   cout << "\t\t\t\t\t\t\t\t\t\t\t      PRESS ENTER TO START! ";
   cin.get();
@@ -178,7 +176,7 @@ SetConsoleTextAttribute(h,14);
 SetConsoleTextAttribute(h,14);
   cout << "\n\n\n";
   cout << "\t\t\t                 *                      *                                *                      *                     *                 *                           " << endl;
-  cout << "\t\t\t                               *                          *                      *                            *            *                   *             " << endl; 
+  cout << "\t\t\t                               *                          *                      *                            *            *                   *             " << endl;
   cout << "\t\t\t                                               *                    *                        *                                     *                      " << endl;
   cout << "\t\t\t                         *                                   *                                       *                   *                   *               " << endl;
   cout << "\t\t\t             *                      *               *                        *            *                     *                 *                  *         \n" << endl;
@@ -255,7 +253,7 @@ SetConsoleTextAttribute(h,14);
   SetConsoleTextAttribute(h,14);
   cout << "\n\n\n";
   cout << "\t\t\t                           *                                *                      *                     *                 *                    *                       " << endl;
-  cout << "\t\t\t                  *                          *                           *                       *               *                   *                                  " << endl; 
+  cout << "\t\t\t                  *                          *                           *                       *               *                   *                                  " << endl;
   cout << "\t\t\t                                      *                       *                *                                          *                  *                          " << endl;
   cout << "\t\t\t             *                                        *                                    *                 *                   *                *                     " << endl;
   cout << "\t\t\t                          *               *                        *            *               *                 *                      *               *           \n" << endl;
@@ -324,7 +322,7 @@ SetConsoleTextAttribute(h,14);
   cout << "|  _          _    o|" << endl;
   cout << "\t\t\t\t                                                       ='(_)--------(_)'===\n\n\n" << endl;
   SetConsoleTextAttribute(h,3);
-cout << "\t\t\t\t=================================================================================================================================================\n\n\n\n";  
+cout << "\t\t\t\t=================================================================================================================================================\n\n\n\n";
 SetConsoleTextAttribute(h,15);
   cout << "\t\t\t\t\t\t\t\t\t\t\t      LOADING PLEASE WAIT..";
 sleep(1);
@@ -332,7 +330,7 @@ sleep(1);
 SetConsoleTextAttribute(h,14);
   cout << "\n\n\n";
   cout << "\t\t\t                 *                      *                                *                      *                     *                 *                           " << endl;
-  cout << "\t\t\t                               *                          *                      *                            *            *                   *             " << endl; 
+  cout << "\t\t\t                               *                          *                      *                            *            *                   *             " << endl;
   cout << "\t\t\t                                               *                    *                        *                                     *                      " << endl;
   cout << "\t\t\t                         *                                   *                                       *                   *                   *               " << endl;
   cout << "\t\t\t             *                      *               *                        *            *                     *                 *                  *         \n" << endl;
@@ -401,7 +399,7 @@ SetConsoleTextAttribute(h,14);
   cout << "|  _          _    o|" << endl;
   cout << "\t\t\t\t                                                              ='(_)--------(_)'===\n\n\n" << endl;
   SetConsoleTextAttribute(h,3);
-cout << "\t\t\t\t=================================================================================================================================================\n\n\n\n";  
+cout << "\t\t\t\t=================================================================================================================================================\n\n\n\n";
 SetConsoleTextAttribute(h,15);
   cout << "\t\t\t\t\t\t\t\t\t\t\t      LOADING PLEASE WAIT...";
 sleep(1);
@@ -409,7 +407,7 @@ sleep(1);
   SetConsoleTextAttribute(h,14);
   cout << "\n\n\n";
   cout << "\t\t\t                           *                                *                      *                     *                 *                    *                       " << endl;
-  cout << "\t\t\t                  *                          *                           *                       *               *                   *                                  " << endl; 
+  cout << "\t\t\t                  *                          *                           *                       *               *                   *                                  " << endl;
   cout << "\t\t\t                                      *                       *                *                                          *                  *                          " << endl;
   cout << "\t\t\t             *                                        *                                    *                 *                   *                *                     " << endl;
   cout << "\t\t\t                          *               *                        *            *               *                 *                      *               *           \n" << endl;
@@ -478,7 +476,7 @@ sleep(1);
   cout <<"|  _          _    o|" << endl;
   cout << "\t\t\t\t                                                                     ='(_)--------(_)'===\n\n\n" << endl;
   SetConsoleTextAttribute(h,3);
-cout << "\t\t\t\t=================================================================================================================================================\n\n\n\n";  
+cout << "\t\t\t\t=================================================================================================================================================\n\n\n\n";
 SetConsoleTextAttribute(h,15);
   cout << "\t\t\t\t\t\t\t\t\t\t\t      LOADING PLEASE WAIT.";
 sleep(1);
@@ -486,7 +484,7 @@ sleep(1);
 SetConsoleTextAttribute(h,14);
   cout << "\n\n\n";
   cout << "\t\t\t                 *                      *                                *                      *                     *                 *                           " << endl;
-  cout << "\t\t\t                               *                          *                      *                            *            *                   *             " << endl; 
+  cout << "\t\t\t                               *                          *                      *                            *            *                   *             " << endl;
   cout << "\t\t\t                                               *                    *                        *                                     *                      " << endl;
   cout << "\t\t\t                         *                                   *                                       *                   *                   *               " << endl;
   cout << "\t\t\t             *                      *               *                        *            *                     *                 *                  *         \n" << endl;
@@ -555,7 +553,7 @@ SetConsoleTextAttribute(h,14);
   cout << "|  _          _    o|" << endl;
   cout << "\t\t\t\t                                                                           ='(_)--------(_)'===\n\n\n" << endl;
   SetConsoleTextAttribute(h,3);
-cout << "\t\t\t\t=================================================================================================================================================\n\n\n\n";  
+cout << "\t\t\t\t=================================================================================================================================================\n\n\n\n";
 SetConsoleTextAttribute(h,15);
   cout << "\t\t\t\t\t\t\t\t\t\t\t      LOADING PLEASE WAIT..";
 sleep(1);
@@ -563,7 +561,7 @@ sleep(1);
   SetConsoleTextAttribute(h,14);
   cout << "\n\n\n";
   cout << "\t\t\t                           *                                *                      *                     *                 *                    *                       " << endl;
-  cout << "\t\t\t                  *                          *                           *                       *               *                   *                                  " << endl; 
+  cout << "\t\t\t                  *                          *                           *                       *               *                   *                                  " << endl;
   cout << "\t\t\t                                      *                       *                *                                          *                  *                          " << endl;
   cout << "\t\t\t             *                                        *                                    *                 *                   *                *                     " << endl;
   cout << "\t\t\t                          *               *                        *            *               *                 *                      *               *           \n" << endl;
@@ -632,7 +630,7 @@ sleep(1);
   cout <<"|  _          _    o|" << endl;
   cout << "\t\t\t\t                                                                                 ='(_)--------(_)'===\n\n\n" << endl;
   SetConsoleTextAttribute(h,3);
-cout << "\t\t\t\t=================================================================================================================================================\n\n\n\n";  
+cout << "\t\t\t\t=================================================================================================================================================\n\n\n\n";
 SetConsoleTextAttribute(h,15);
   cout << "\t\t\t\t\t\t\t\t\t\t\t      LOADING PLEASE WAIT...";
 sleep(1);
@@ -640,7 +638,7 @@ sleep(1);
 SetConsoleTextAttribute(h,14);
   cout << "\n\n\n";
   cout << "\t\t\t                 *                      *                                *                      *                     *                 *                           " << endl;
-  cout << "\t\t\t                               *                          *                      *                            *            *                   *             " << endl; 
+  cout << "\t\t\t                               *                          *                      *                            *            *                   *             " << endl;
   cout << "\t\t\t                                               *                    *                        *                                     *                      " << endl;
   cout << "\t\t\t                         *                                   *                                       *                   *                   *               " << endl;
   cout << "\t\t\t             *                      *               *                        *            *                     *                 *                  *         \n" << endl;
@@ -709,7 +707,7 @@ SetConsoleTextAttribute(h,14);
   cout <<"|  _          _    o|" << endl;
   cout << "\t\t\t\t                                                                                       ='(_)--------(_)'===\n\n\n" << endl;
   SetConsoleTextAttribute(h,3);
-cout << "\t\t\t\t=================================================================================================================================================\n\n\n\n";  
+cout << "\t\t\t\t=================================================================================================================================================\n\n\n\n";
 SetConsoleTextAttribute(h,15);
   cout << "\t\t\t\t\t\t\t\t\t\t\t      LOADING PLEASE WAIT.";
 sleep(1);
@@ -717,7 +715,7 @@ sleep(1);
   SetConsoleTextAttribute(h,14);
   cout << "\n\n\n";
   cout << "\t\t\t                           *                                *                      *                     *                 *                    *                       " << endl;
-  cout << "\t\t\t                  *                          *                           *                       *               *                   *                                  " << endl; 
+  cout << "\t\t\t                  *                          *                           *                       *               *                   *                                  " << endl;
   cout << "\t\t\t                                      *                       *                *                                          *                  *                          " << endl;
   cout << "\t\t\t             *                                        *                                    *                 *                   *                *                     " << endl;
   cout << "\t\t\t                          *               *                        *            *               *                 *                      *               *           \n" << endl;
@@ -786,7 +784,7 @@ sleep(1);
   cout << " |  _          _    o|" << endl;
   cout << "\t\t\t\t                                                                                                ='(_)--------(_)'===\n\n\n" << endl;
   SetConsoleTextAttribute(h,3);
-cout << "\t\t\t\t=================================================================================================================================================\n\n\n\n";  
+cout << "\t\t\t\t=================================================================================================================================================\n\n\n\n";
 SetConsoleTextAttribute(h,15);
   cout << "\t\t\t\t\t\t\t\t\t\t\t      LOADING PLEASE WAIT..";
 sleep(1);
@@ -794,7 +792,7 @@ sleep(1);
 SetConsoleTextAttribute(h,14);
   cout << "\n\n\n";
   cout << "\t\t\t                 *                      *                                *                      *                     *                 *                           " << endl;
-  cout << "\t\t\t                               *                          *                      *                            *            *                   *             " << endl; 
+  cout << "\t\t\t                               *                          *                      *                            *            *                   *             " << endl;
   cout << "\t\t\t                                               *                    *                        *                                     *                      " << endl;
   cout << "\t\t\t                         *                                   *                                       *                   *                   *               " << endl;
   cout << "\t\t\t             *                      *               *                        *            *                     *                 *                  *         \n" << endl;
@@ -857,7 +855,7 @@ SetConsoleTextAttribute(h,14);
   SetConsoleTextAttribute(h,15);
   cout << "\t\t\t\t   --      --      --      --      --      --      --     EVALUATION FOR THE HIGHER UPS    --      --      --      --      --      --      --   \n\n\n\n" << endl;
 SetConsoleTextAttribute(h,3);
-cout << "\t\t\t\t=================================================================================================================================================\n\n\n\n";  
+cout << "\t\t\t\t=================================================================================================================================================\n\n\n\n";
 SetConsoleTextAttribute(h,15);
 cout << "\t\t\t\t\t\t\t\t\t\t\t     PRESS ENTER TO CONTINUE";
 cin.get();
@@ -896,7 +894,7 @@ void sub_grade() {
         sleep(1.5);
         system("cls");
         exitprog = false;
-        return;
+        userpage();
     } else if(select == '2') {
         cout << "Returning to scores..." << endl;
         sleep(1.5);
@@ -960,16 +958,16 @@ void fildis(){
         char correctAnswers[NUM_QUESTIONS] = {'B', 'B', 'B', 'B', 'B', 'A', 'B', 'A', 'A', 'A', 'C', 'B', 'B', 'B', 'C', 'C', 'B', 'B', 'C', 'A', 'A', 'B', 'A', 'A', 'A'};
         char userAnswers[NUM_QUESTIONS];
 
-        
+
         for (int i = 0; i < NUM_QUESTIONS; i++) {
             cout << questions[i] << "\n\n\t\t\t\t\t\tAnswer: ";
             cin >> userAnswers[i];
             cout << "\n";
         }
-        
+
         //  ==== Edit Answers =======!!
-        
-        
+
+
         char reviewChoice;
         int qNum;
         while (true) {
@@ -981,7 +979,7 @@ void fildis(){
             } else if(reviewChoice == 'Y' || reviewChoice == 'y'){
             cout << "\t\t\t\tEnter the question number to edit (1-" << NUM_QUESTIONS << "): ";
             cin >> qNum;
-            
+
             if (qNum >= 1 && qNum <= NUM_QUESTIONS) {
                 cout << "\n" << questions[qNum - 1] << "\n\n\t\t\t\t\t\tNew Answer: ";
                 cin >> userAnswers[qNum - 1];
@@ -1010,17 +1008,17 @@ void fildis(){
         system("cls");
         exitprog = false;
         userpage();
-        
+
     } else if (choose == '2') {
         cout << "Returning to Menu..." << endl;
         system("cls");
         sleep(1.5);
         exitprog = false;
-        return;
+        userpage();
     } else {
         cout << "INVALID, PLEASE CHOOSE 1 or 2" << endl;
     }
-	
+
 }
 
 void nstp(){
@@ -1093,10 +1091,10 @@ void sts(){
             cin >> userAnswers[i];
             cout << "\n";
         }
-        
+
         // Review and Edit Answers
-        
-        
+
+
         char reviewChoice;
         int qNum;
         while (true) {
@@ -1108,7 +1106,7 @@ void sts(){
             } else if(reviewChoice == 'Y' || reviewChoice == 'y'){
             cout << "\t\t\t\tEnter the question number to edit (1-" << NUM_QUESTIONS << "): ";
             cin >> qNum;
-            
+
             if (qNum >= 1 && qNum <= NUM_QUESTIONS) {
                 cout << "\n" << questions[qNum - 1] << "\nNew Answer: ";
                 cin >> userAnswers[qNum - 1];
@@ -1137,17 +1135,17 @@ void sts(){
         system("cls");
         exitprog = false;
         userpage();
-        
+
     } else if (choose == '2') {
         cout << "Returning to Menu..." << endl;
         system("cls");
         sleep(1.5);
         exitprog = false;
-        return;
+        userpage();
     } else {
         cout << "INVALID, PLEASE CHOOSE 1 or 2" << endl;
     }
-	
+
 }
 
 void ethics(){
@@ -1209,10 +1207,10 @@ void ethics(){
             cin >> userAnswers[i];
             cout << "\n";
         }
-        
+
         // Review and Edit Answers
-        
-        
+
+
         char reviewChoice;
         int qNum;
         while (true) {
@@ -1224,7 +1222,7 @@ void ethics(){
             } else if(reviewChoice == 'Y' || reviewChoice == 'y'){
             cout << "\t\t\t\tEnter the question number to edit (1-" << NUM_QUESTIONS << "): ";
             cin >> qNum;
-            
+
             if (qNum >= 1 && qNum <= NUM_QUESTIONS) {
                 cout << "\n" << questions[qNum - 1] << "\n\n\t\t\t\t\t\tNew Answer: ";
                 cin >> userAnswers[qNum - 1];
@@ -1253,13 +1251,13 @@ void ethics(){
         system("cls");
         exitprog = false;
         userpage();
-        
+
     } else if (choose == '2') {
         cout << "Returning to Menu..." << endl;
         system("cls");
         sleep(1.5);
         exitprog = false;
-        return;
+        userpage();
     } else {
         cout << "INVALID, PLEASE CHOOSE 1 or 2" << endl;
     }
@@ -1334,10 +1332,10 @@ void pathfit(){
             cin >> userAnswers[i];
             cout << "\n";
         }
-        
+
         // Review and Edit Answers
-        
-        
+
+
         char reviewChoice;
         int qNum;
         while (true) {
@@ -1349,7 +1347,7 @@ void pathfit(){
             } else if(reviewChoice == 'Y' || reviewChoice == 'y'){
             cout << "\t\t\t\tEnter the question number to edit (1-" << NUM_QUESTIONS << "): ";
             cin >> qNum;
-            
+
             if (qNum >= 1 && qNum <= NUM_QUESTIONS) {
                 cout << "\n" << questions[qNum - 1] << "\n\n\t\t\t\t\t\tNew Answer: ";
                 cin >> userAnswers[qNum - 1];
@@ -1378,13 +1376,13 @@ void pathfit(){
         system("cls");
         exitprog = false;
         userpage();
-        
+
     } else if (choose == '2') {
         cout << "Returning to Menu..." << endl;
         system("cls");
         sleep(1.5);
         exitprog = false;
-        return;
+        userpage();
     } else {
         cout << "INVALID, PLEASE CHOOSE 1 or 2" << endl;
     }
@@ -1429,10 +1427,10 @@ void comprog() {
             cout << i + 1 << ". " << questions[i] << "\n\n\t\t\t\t\t\tAnswer: ";
             cin >> userAnswers[i];
         }
-        
+
         // Review and Edit Answers
-        
-        
+
+
         char reviewChoice;
         int qNum;
         while (true) {
@@ -1447,7 +1445,7 @@ void comprog() {
             } else if(reviewChoice == 'Y' || reviewChoice == 'y'){
             cout << "\t\t\t\tEnter the question number to edit (1-" << NUM_QUESTIONS << "): ";
             cin >> qNum;
-            
+
             if (qNum >= 1 && qNum <= NUM_QUESTIONS) {
                 cout << "\n" << questions[qNum - 1] << "\nNew Answer: ";
                 cin >> userAnswers[qNum - 1];
@@ -1473,14 +1471,14 @@ void comprog() {
         comprog_taken = true;
         system("cls");
         exitprog = false;
-        return;
-        
+        userpage();
+
     } else if (choose == '2') {
         cout << "Returning to Menu..." << endl;
         system("cls");
         sleep(1.5);
         exitprog = false;
-        return;
+        userpage();
     } else {
         cout << "INVALID, PLEASE CHOOSE 1 or 2" << endl;
     }
@@ -1546,10 +1544,10 @@ void purcomm() {
             cin >> userAnswers[i];
             cout << "\n";
         }
-        
+
         // Review and Edit Answers
-        
-        
+
+
         char reviewChoice;
         int qNum;
         while (true) {
@@ -1561,7 +1559,7 @@ void purcomm() {
             } else if(reviewChoice == 'Y' || reviewChoice == 'y'){
             cout << "\t\t\t\tEnter the question number to edit (1-" << NUM_QUESTIONS << "): ";
             cin >> qNum;
-            
+
             if (qNum >= 1 && qNum <= NUM_QUESTIONS) {
                 cout << "\n" << questions[qNum - 1] << "\n\n\t\t\t\t\t\tNew Answer: ";
                 cin >> userAnswers[qNum - 1];
@@ -1590,17 +1588,17 @@ void purcomm() {
         system("cls");
         exitprog = false;
         userpage();
-        
+
     } else if (choose == '2') {
         cout << "Returning to Menu..." << endl;
         system("cls");
         sleep(1.5);
         exitprog = false;
-        return;
+        userpage;
     } else {
         cout << "INVALID, PLEASE CHOOSE 1 or 2" << endl;
     }
-	
+
 }
 
 void subscore() {
@@ -1682,7 +1680,7 @@ void subscore() {
         sleep(1.5);
         exitprog = false;
         system("cls");
-        return;
+        userpage();
     } else if(select == '2') {
         cout << "\n\n\n\n\t\t\t\t\t\t\t Returning to grades..." << endl;
         sleep(1.5);
@@ -1700,9 +1698,9 @@ int main() {
 	userpage();
 //   	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 //   	SetConsoleTextAttribute(h,1);
-//    
+//
 //    bool error = false;
-//    
+//
 //    while (!((name == adminname && pass == adminpass) || (name == username && pass == userpass))){
 //   	cout << "\t\t\t\t\t\t|\t\t|\t\t\t\t\t\t\t\t\t\t|\t\t|" << endl;
 //   	cout << "\t\t\t\t\t\t|\t\t|\t\t\t\t\t\t\t\t\t\t|\t\t|" << endl;
@@ -1746,7 +1744,7 @@ int main() {
 //	cout << "\t\t\t\t                                                              |                   |\n";
 //	SetConsoleTextAttribute(h,3);
 //	cout << "\t\t\t\t                                                        =================================\n";
-//	
+//
 //if (error) {
 //        cout << "\t\t\t\t                                                              Error Credentials!! \n\n ";
 //    }
@@ -1761,24 +1759,24 @@ int main() {
 //        SetConsoleTextAttribute(h, 15);
 //        pass = "";
 //    SetConsoleTextAttribute(h,15);
-//     while ((ch = _getch()) != '\r') { 
+//     while ((ch = _getch()) != '\r') {
 //        if (ch == '\b') {
 //            if (!pass.empty()) {
 //               pass.erase(pass.size() - 1);
-//                cout << "\b \b"; 
+//                cout << "\b \b";
 //            }
 //        } else {
 //            pass += ch;
 //            cout << '*';
 //        }
 //    }
-//    
+//
 //    if(pass != userpass || pass != adminpass){
 //    	cin.clear();
 //    	error = true;
 //	}
 //    SetConsoleTextAttribute(h,15);
-//    
+//
 //    SetConsoleTextAttribute(h,3);
 //	cout << "\n\n\t\t\t\t                                                        =================================\n";
 //	sleep(1.5);
@@ -1786,22 +1784,22 @@ int main() {
 //    	adminpage();
 //	}else if(name == username && pass == userpass)
 //	{
-//	userpage();	
+//	userpage();
 //	}else{
 //error = true;
 //cin.clear();
 //}
 //system("cls");
 //
-//} 
+//}
 
-    
+
     return 0;
 
 }
 
 
-	
+
 void userpage(){
 	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 	int choice;
@@ -1943,7 +1941,7 @@ void userpage(){
         SetConsoleTextAttribute(h,4);
         cout << "          |                            |" << endl;
         SetConsoleTextAttribute(h,14);
-        cout << "\t\t\t\t                                    |      [10] View scores      |"; 
+        cout << "\t\t\t\t                                    |      [10] View scores      |";
         SetConsoleTextAttribute(h,4);
         cout << "          |         [11] Close         |" << endl;
         SetConsoleTextAttribute(h,14);
@@ -1951,7 +1949,7 @@ void userpage(){
         SetConsoleTextAttribute(h,4);
         cout << "          |                            |" << endl;
         SetConsoleTextAttribute(h,14);
-		cout << "\t\t\t\t                                    |============================|";   
+		cout << "\t\t\t\t                                    |============================|";
         SetConsoleTextAttribute(h,4);
         cout << "          |============================|" << endl;
         SetConsoleTextAttribute(h,3);
@@ -1998,7 +1996,7 @@ void userpage(){
                     system("cls");
                     exitprog = false;
                 }
-                else if(comprog_taken == false) {
+                else if(purcomm_taken == false) {
                     cout << "\n\n\n\n\t\t\t\t\t\t\t Loading...." << endl;
                     sleep(1.5);
                     exitprog = true;
@@ -2048,7 +2046,7 @@ void userpage(){
                     sleep(1.5);
                     system("cls");
                     exitprog = false;
-                } else if(purcomm_taken == false) {
+                } else if(artapp_taken == false) {
                     cout << "\n\n\n\n\t\t\t\t\t\t\t Loading...." << endl;
                     sleep(1.5);
                     exitprog = true;
@@ -2115,9 +2113,9 @@ void userpage(){
             cout << "\n\n\n\n\t\t\t\t\t\t\t Invalid Operator" << endl;
             }
           break;
-        
-        
-        case 4:
+
+
+        case 4: //ethics
          system("cls");
          SetConsoleTextAttribute(h,12);
    			cout << "\t\t\t\t\t\t|\t\t|\t\t\t\t\t\t\t\t\t\t|\t\t|" << endl;
@@ -2147,29 +2145,30 @@ void userpage(){
 			cout << "\t\t\t\t\t\t\t\t\t\t\t\t Answer: ";
        	 	cin >> cont;
          	if(cont == '1'){
-         		if(ethics_taken = true){
+         		if(ethics_taken == true){
          		cout << "\n\n\n\n\t\t\t\t\t\t\t You already take the exam\n";
          		sleep(1);
          		system("cls");
-			 } 
-			 }else if(ethics_taken = false){
+			 }
+			 else if(ethics_taken == false){
          	cout << "\n\n\n\n\t\t\t\t\t\t\t Loading..." << endl;
-         	exitprog = true; 
-            system("cls");
+         	sleep(1);
+         	exitprog = true;
          	ethics();
+		 }
 		 } else if(cont == '2'){
 		 	cout << "\n\n\n\n\t\t\t\t\t\t\t Returning to subject selection...";
 		 	sleep(1.5);
 		 	system("cls");
 		 	exitprog = false;
-	
+
 		 } else {
 		 	cout << "\n\n\n\n\t\t\t\t\t\t\t Invalid Operator" << endl;
 		 }
-		 
+
 		 break;
-         
-         
+
+
          case 5: //discrete
          	system("cls");
          	SetConsoleTextAttribute(h,2);
@@ -2200,7 +2199,7 @@ void userpage(){
 			cout << "\t\t\t\t\t\t\t\t\t\t\t\t Answer: ";
          	cin >> cont;
          	if(cont == '1'){
-			 
+
          		if(discrete_taken = true){
          		cout << "\n\n\n\n\t\t\t\t\t\t\t You already take the exam\n";
          		cout << "\n\n\n\n\t\t\t\t\t\t\t Returning to subject....";
@@ -2221,6 +2220,8 @@ void userpage(){
 		 	cout << "\n\n\n\n\t\t\t\t\t\t\t Invalid Operator" << endl;
 		 }
 		 break;
+		 
+		 
 		 case 6: //comprog
 			system("cls");
 			SetConsoleTextAttribute(h,8);
@@ -2269,11 +2270,13 @@ void userpage(){
                 system("cls");
             } else {
                 cout << "\n\n\n\n\t\t\t\t\t\t\t Invalid Operator!" << endl;
-            
+
 		 }
-         
-				 
+
+
 				 break;
+
+				 
 				 
 		case 7: //fildis
 			system("cls");
@@ -2323,12 +2326,12 @@ void userpage(){
                 system("cls");
             } else {
                 cout << "\n\n\n\n\t\t\t\t\t\t\t Invalid Operator!" << endl;
-            
+
 		 }
-				 
-				 
+
+
 				 break;
-				 
+
 			case 8: //nstp
 			system("cls");
 			SetConsoleTextAttribute(h,3);
@@ -2350,7 +2353,7 @@ void userpage(){
    			cout << "\t\t\t\t\t\t|\t\t|\t\t\t\t\t\t\t\t\t\t|\t\t|" << endl;
    			cout << "\t\t\t\t\t\t|\t\t|\t\t\t\t\t\t\t\t\t\t|\t\t|" << endl;
    			SetConsoleTextAttribute(h,15);
-   			cout << "\t\t\t\t=================================================================================================================================================\n\n\n\n" << endl;	 
+   			cout << "\t\t\t\t=================================================================================================================================================\n\n\n\n" << endl;
 			SetConsoleTextAttribute(h,3);
 			cout << "\t\t\t\t\t\t\t\t\t\t Do you want to take NSTP2? (1 = Yes, 2 = No) \n\n\n\n " << endl;
 			SetConsoleTextAttribute(h,15);
@@ -2377,10 +2380,12 @@ void userpage(){
                 system("cls");
             } else {
                 cout << "\n\n\n\n\t\t\t\t\t\t\t Invalid Operator!" << endl;
-            
+
 		 }
-		 
+
 		 break;
+
+		 
 		 
 		 	case 9: //pathfit
 		 	system("cls");
@@ -2405,7 +2410,7 @@ void userpage(){
    			SetConsoleTextAttribute(h,15);
    			cout << "\t\t\t\t=================================================================================================================================================\n\n\n\n" << endl;
 			SetConsoleTextAttribute(h,1);
-			cout << "\t\t\t\t\t\t\t\t\t\t Do you want to take NSTP2? (1 = Yes, 2 = No) \n\n\n\n " << endl;
+			cout << "\t\t\t\t\t\t\t\t\t\t Do you want to take PATHFIT2? (1 = Yes, 2 = No) \n\n\n\n " << endl;
 			SetConsoleTextAttribute(h,15);
 		 	cout << "\t\t\t\t=================================================================================================================================================\n\n\n\n" << endl;
         	SetConsoleTextAttribute(h,1);
@@ -2430,14 +2435,14 @@ void userpage(){
                 system("cls");
             } else {
                 cout << "\n\n\n\n\t\t\t\t\t\t\t Invalid Operator!" << endl;
-            
+
 		 }
-		 
+
 		 break;
-		 
-				 
-				 
-        
+
+
+
+
 		case 10:
             cout << "\n\n\n\n\t\t\t\t\t\t Returning to scores..." << endl;
             sleep(1.5);
@@ -2445,24 +2450,24 @@ void userpage(){
             subscore();
             break;
 
-       
-            
-        
-        	
+
+
+
+
         case 11:
             cout << "\n\n\n\n\t\t\t\t\t\t Exiting LMS... Thank You" << endl;
             sleep(1.5);
             exitprog = true;
             exit;
             break;
-            
-     
-		        
+
+
+
         default:
             system("cls");
             cout << "\nInvalid Operator! " << endl;
             exitprog = false;
         }
     }
-    
+
 }

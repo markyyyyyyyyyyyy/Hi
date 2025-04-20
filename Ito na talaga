@@ -20,12 +20,24 @@ struct User {
     int nstp_score = -1;
     int comprog_score = -1;
     int purcomm_score = -1;
-    int pathfit_score = 0;
-    int fildis_score = 0;
-    int artapp_score = 0;
-    int sts_score = 0;
-    int ethics_score = 0;
-    int discrete_score = 0;
+    int pathfit_score = -1;
+    int fildis_score = -1;
+    int artapp_score = -1;
+    int sts_score = -1;
+    int ethics_score = -1;
+    int discrete_score = -1;
+
+    //check kung nakapagexam na
+    bool nstp_taken = false;
+
+    bool comprog_taken = false;
+    bool purcomm_taken = false;
+    bool pathfit_taken = false;
+    bool fildis_taken = false;
+    bool artapp_taken = false;
+    bool sts_taken = false;
+    bool ethics_taken = false;
+    bool discrete_taken = false;
 };
 
 vector<User> users;
@@ -46,27 +58,30 @@ void seedDefaultUsers() {
 }
 
 
-void subscore();
+void subscore(User& user);
 void createUser();
 void updateUser();
 void deleteUser();
-void viewStudentScores();
-void purcomm(const User& user);
-void comprog(const User& user);
-void sts(const User& user);
-void ethics(const User& user);
-void pathfit(const User& user);
-void fildis(const User& user);
+void viewStudentScores(const vector<User>& users);
+void purcomm(User& user);
+void comprog(User& user);
+void sts(User& user);
+void ethics(User& user);
+void pathfit(User& user);
+void fildis(User& user);
 void nstp(User& user);
-void discrete(const User& user);
-void artapp(const User& user);
+void discrete(User& user);
+void artapp(User& user);
 
 
 bool closeprog = false;
-bool exitprog = false, comprog_taken = false, purcomm_taken = false, pathfit_taken = false, nstp_taken = false, fildis_taken = false, artapp_taken = false, sts_taken = false, ethics_taken = false, discrete_taken = false;
+ bool exitprog = false;
 
+    string status(bool taken) {
+    return taken ? "[Taken]" : "[Not Taken]";
+    }
+void userpage(User& user){
 
-void userpage(const User& user){
 	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 	int choice;
 	bool exitprog = false;
@@ -255,13 +270,13 @@ void userpage(const User& user){
 			cout << "\t\t\t\t\t\t\t\t\t\t\t\t Answer: ";
             cin >> cont;
             if(cont == '1') {
-                if(purcomm_taken == true) {
+                if(user.purcomm_taken == true) {
                     cout << "\n\n\n\n\t\t\t\t\t\t\t You already taken the purposive communication exam!!" << endl;
                     sleep(1.5);
                     system("cls");
                     exitprog = false;
                 }
-                else if(purcomm_taken == false) {
+                else if(user.purcomm_taken == false) {
                     cout << "\n\n\n\n\t\t\t\t\t\t\t Loading...." << endl;
                     sleep(1.5);
                     exitprog = true;
@@ -306,12 +321,12 @@ void userpage(const User& user){
 			cout << "\t\t\t\t\t\t\t\t\t\t\t\t Answer: ";
             cin >> cont;
             if(cont == '1') {
-                if(artapp_taken == true) {
+                if(user.artapp_taken == true) {
                     cout << "\n\n\n\n\t\t\t\t\t\t\t You already taken the Art Appreciation exam!!" << endl;
                     sleep(1.5);
                     system("cls");
                     exitprog = false;
-                } else if(artapp_taken == false) {
+                } else if(user.artapp_taken == false) {
                     cout << "\n\n\n\n\t\t\t\t\t\t\t Loading...." << endl;
                     sleep(1.5);
                     exitprog = true;
@@ -357,12 +372,12 @@ void userpage(const User& user){
 			cout << "\t\t\t\t\t\t\t\t\t\t\t\t Answer: ";
             cin >> cont;
             if(cont == '1'){
-              if(sts_taken == true){
+              if(user.sts_taken == true){
               cout << "\n\n\n\n\t\t\t\t\t\t\t You already taken the STS exam!!" << endl;
               sleep(1.5);
               system("cls");
               exitprog = false;
-              } else if(sts_taken == false){
+              } else if(user.sts_taken == false){
               cout << "\n\n\n\n\t\t\t\t\t\t\t Loading..." << endl;
               sleep(1.5);
               system("cls");
@@ -410,11 +425,11 @@ void userpage(const User& user){
 			cout << "\t\t\t\t\t\t\t\t\t\t\t\t Answer: ";
        	 	cin >> cont;
          	if(cont == '1'){
-         		if(ethics_taken == true){
+         		if(user.ethics_taken == true){
          		cout << "\n\n\n\n\t\t\t\t\t\t\t You already taken the Applied Ethics exam\n";
          		sleep(1);
          		system("cls");
-			 }else if(ethics_taken == false){
+			 }else if(user.ethics_taken == false){
          	cout << "\n\n\n\n\t\t\t\t\t\t\t Loading..." << endl;
          	sleep(1);
          	exitprog = true;
@@ -465,12 +480,12 @@ void userpage(const User& user){
          	cin >> cont;
          	if(cont == '1'){
 
-         		if(discrete_taken == true){
+         		if(user.discrete_taken == true){
          		cout << "\n\n\n\n\t\t\t\t\t\t\t You already take the exam\n";
          		cout << "\n\n\n\n\t\t\t\t\t\t\t Returning to subject....";
          		sleep(1);
          		system("cls");
-			 }else if(discrete_taken == false){
+			 }else if(user.discrete_taken == false){
 			cout << "\n\n\n\n\t\t\t\t\t\t\t Loading..." << endl;
 			sleep(1.5);
          	exitprog = true;
@@ -518,12 +533,12 @@ void userpage(const User& user){
 			cout << "\t\t\t\t\t\t\t\t\t\t\t\t Answer: ";
          	cin >> cont;
          	if(cont == '1'){
-         		if(comprog_taken == true){
+         		if(user.comprog_taken == true){
          		cout << "\n\n\n\n\t\t\t\t\t\t\t You already take the exam\n";
          		cout << "\n\n\n\n\t\t\t\t\t\t\t Returning to subject....";
          		sleep(1);
          		system("cls");
-         		} else if(comprog_taken == false){
+         		} else if(user.comprog_taken == false){
          	 cout << "\n\n\n\n\t\t\t\t\t\t\t Loading...." << endl;
                      sleep(1.5);
                     exitprog = true;
@@ -572,12 +587,12 @@ void userpage(const User& user){
 			cout << "\t\t\t\t\t\t\t\t\t\t\t\t Answer: ";
 				cin >> cont;
 				 	if(cont == '1'){
-         		if(fildis_taken == true){
+         		if(user.fildis_taken == true){
          		cout << "\n\n\n\n\t\t\t\t\t\t\t You already take the exam\n";
          		cout << "\n\n\n\n\t\t\t\t\t\t\t Returning to subject....";
          		sleep(1);
          		system("cls");
-         		} else if(fildis_taken == false){
+         		} else if(user.fildis_taken == false){
          	 cout << "\n\n\n\n\t\t\t\t\t\t\t Loading...." << endl;
                      sleep(1.5);
                     exitprog = true;
@@ -626,18 +641,18 @@ void userpage(const User& user){
 			cout << "\t\t\t\t\t\t\t\t\t\t\t\t Answer: ";
 				 cin >> cont;
 					if(cont == '1'){
-         		if(nstp_taken == true){
+         		if(user.nstp_taken == true){
          		cout << "\n\n\n\n\t\t\t\t\t\t\t You already take the exam\n";
          		cout << "\n\n\n\n\t\t\t\t\t\t\t Returning to subject....";
          		sleep(1);
          		system("cls");
-         		} else if(nstp_taken == false){
+         		} else if(user.nstp_taken == false){
          	 cout << "\n\n\n\n\t\t\t\t\t\t\t Loading...." << endl;
                      sleep(1.5);
                     exitprog = true;
                 system("cls");
-                User user;
-         	    nstp(users[0]);
+
+         	    nstp(user);
             }
 			}else if(cont == '2'){
          	  cout << "\n\n\n\n\t\t\t\t\t\t\t Returning to subject selection...\n";
@@ -680,12 +695,12 @@ void userpage(const User& user){
 			cout << "\t\t\t\t\t\t\t\t\t\t\t\t Answer: ";
 		 	cin >> cont;
 		 	if(cont == '1'){
-         		if(pathfit_taken == true){
+         		if(user.pathfit_taken == true){
          		cout << "\n\n\n\n\t\t\t\t\t\t\t You already take the exam\n";
          		cout << "\n\n\n\n\t\t\t\t\t\t\t Returning to subject....";
          		sleep(1);
          		system("cls");
-         		} else if(pathfit_taken == false){
+         		} else if(user.pathfit_taken == false){
          	 cout << "\n\n\n\n\t\t\t\t\t\t\t Loading...." << endl;
                      sleep(1.5);
                     exitprog = true;
@@ -710,7 +725,7 @@ void userpage(const User& user){
             cout << "\n\n\n\n\t\t\t\t\t\t Returning to scores..." << endl;
             sleep(1.5);
             exitprog = true;
-            subscore();
+            subscore(user);
             break;
 
 
@@ -720,6 +735,7 @@ void userpage(const User& user){
         case 11:
             cout << "\n\n\n\n\t\t\t\t\t\t Exiting LMS... Thank You" << endl;
             sleep(1.5);
+            cin.ignore();
             exitprog = true;
             exit;
             break;
@@ -761,7 +777,7 @@ void adminpage(const User& admin){
         switch (choice) {
             case 1:
 
-			     viewStudentScores(); break;
+			     viewStudentScores(users); break;
             case 2:
 
 			createUser(); break;
@@ -789,61 +805,62 @@ void adminpage(const User& admin){
 }
 
 
-void viewStudentScores() {
+void viewStudentScores(const vector<User>& users) {
    system("cls");
 
     cout << "\n--- Student Scores ---\n\n";
     for (const auto& user : users) {
         if (user.role == "student") {
             cout << "Name: " << user.name << endl;
+            cout << "=======================" << endl;
             if (user.nstp_score != -1)
-                cout << "NSTP Score: " << user.nstp_score << " / 25\n";
+                cout << "NSTP Score: " << user.nstp_score << " / 25\n\n";
             else
-                cout << "NSTP Score: Not Taken\n";
+                cout << "NSTP Score: Not Taken\n\n";
 
                 if (user.comprog_score != -1)
-                cout << "Computer Programming Score: " << user.comprog_score << " / 25\n";
+                cout << "Computer Programming Score: " << user.comprog_score << " / 25\n\n";
             else
-                cout << "Computer Programming Score: Not Taken\n";
+                cout << "Computer Programming Score: Not Taken\n\n";
 
                 if (user.purcomm_score != -1)
-                cout << "Purposive Communication Score: " << user.purcomm_score << " / 25\n";
+                cout << "Purposive Communication Score: " << user.purcomm_score << " / 25\n\n";
             else
-                cout << "Purposive Communication Score: Not Taken\n";
+                cout << "Purposive Communication Score: Not Taken\n\n";
 
                 if (user.pathfit_score != -1)
-                cout << "PATHFIT 2 Score: " << user.pathfit_score << " / 25\n";
+                cout << "PATHFIT 2 Score: " << user.pathfit_score << " / 25\n\n";
             else
-                cout << "PATHFIT 2 Score: Not Taken\n";
+                cout << "PATHFIT 2 Score: Not Taken\n\n";
 
                 if (user.fildis_score != -1)
-                cout << "Filipino sa Iba't ibang Disiplina Score: " << user.fildis_score << " / 25\n";
+                cout << "Filipino sa Iba't ibang Disiplina Score: " << user.fildis_score << " / 25\n\n";
             else
-                cout << "Filipino sa Iba't ibang Disiplina Score: Not Taken\n";
+                cout << "Filipino sa Iba't ibang Disiplina Score: Not Taken\n\n";
 
                 if (user.artapp_score != -1)
-                cout << "Art Appreciation Score: " << user.artapp_score << " / 25\n";
+                cout << "Art Appreciation Score: " << user.artapp_score << " / 25\n\n";
             else
-                cout << "Art Appreciation Score: Not Taken\n";
+                cout << "Art Appreciation Score: Not Taken\n\n";
 
                 if (user.sts_score != -1)
-                cout << "Science, Technology and Society Score: " << user.sts_score << " / 25\n";
+                cout << "Science, Technology and Society Score: " << user.sts_score << " / 25\n\n";
             else
-                cout << "Science, Technology and Society Score: Not Taken\n";
+                cout << "Science, Technology and Society Score: Not Taken\n\n";
 
                 if (user.ethics_score != -1)
-                cout << "Applied Ethics Score: " << user.ethics_score << " / 25\n";
+                cout << "Applied Ethics Score: " << user.ethics_score << " / 25\n\n";
             else
-                cout << "Applied Ethics Score: Not Taken\n";
+                cout << "Applied Ethics Score: Not Taken\n\n";
 
                 if (user.discrete_score != -1)
-                cout << "Discrete Mathematics Score: " << user.discrete_score << " / 25\n";
+                cout << "Discrete Mathematics Score: " << user.discrete_score << " / 25\n\n";
             else
-                cout << "Discrete Mathematics Score: Not Taken\n";
+                cout << "Discrete Mathematics Score: Not Taken\n\n";
 
             // if you plan to add more subjects, you can add them here
 
-            cout << "-------------------------\n";
+            cout << "-------------------------\n\n\n";
         }
     }
 
@@ -1681,7 +1698,8 @@ system("cls");
 }
 
 
-void fildis(const User& user){
+void fildis(User& user){
+    int score = 0;
 	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 	cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t=================================================================================================================================================\n\n\n";
 	SetConsoleTextAttribute(h,15);
@@ -1772,18 +1790,20 @@ void fildis(const User& user){
         }
 
         // Calculate Score
+
         for (int i = 0; i < NUM_QUESTIONS; i++) {
             if (toupper(userAnswers[i]) == correctAnswers[i]) {
-                fildis_score++;
+                score++;
             }
         }
 
         system("cls");
         cout << "You completed the Filipino sa Iba't ibang Disiplina' exam!\n";
-        cout << "Final Score: " << fildis_score << "/" << NUM_QUESTIONS << endl;
+        user.fildis_score = score;
+        cout << "Final Score: " << score << "/" << NUM_QUESTIONS << endl;
         cout << "Please wait...";
         sleep(3);
-        fildis_taken = true;
+        user.fildis_taken = true;
         system("cls");
         exitprog = false;
         userpage(user);
@@ -1898,14 +1918,14 @@ void nstp(User& user){
 
         cout << "Please wait...";
         sleep(3);
-        nstp_taken = true;
+        user.nstp_taken = true;
         system("cls");
         exitprog = false;
         userpage(user);
 	}
 
 
-void artapp(const User& user){
+void artapp(User& user){
 	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 	char choose;
 	system("cls");
@@ -1999,24 +2019,26 @@ void artapp(const User& user){
         }
 
         // Calculate Score
+        int score = 0;
         for (int i = 0; i < NUM_QUESTIONS; i++) {
             if (toupper(userAnswers[i]) == correctAnswers[i]) {
-                artapp_score++;
+                score++;
             }
         }
 
         system("cls");
+        user.artapp_score = score;
         cout << "You completed the Science, Technology and Society exam\n";
-        cout << "Final Score: " << artapp_score << "/" << NUM_QUESTIONS << endl;
+        cout << "Final Score: " << score << "/" << NUM_QUESTIONS << endl;
         cout << "Please wait...";
         sleep(3);
-        artapp_taken = true;
+        user.artapp_taken = true;
         system("cls");
         exitprog = false;
         userpage(user);
 }
 
-void sts(const User& user){
+void sts(User& user){
 	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
     system("cls");
 
@@ -2109,25 +2131,27 @@ void sts(const User& user){
         }
 
         // Calculate Score
+        int score = 0;
         for (int i = 0; i < NUM_QUESTIONS; i++) {
             if (toupper(userAnswers[i]) == correctAnswers[i]) {
-                sts_score++;
+                score++;
             }
         }
 
         system("cls");
+        user.sts_score = score;
         cout << "You completed the Science, Technology and Society exam\n";
-        cout << "Final Score: " << sts_score << "/" << NUM_QUESTIONS << endl;
+        cout << "Final Score: " << score << "/" << NUM_QUESTIONS << endl;
         cout << "Please wait...";
         sleep(3);
-        sts_taken = true;
+        user.sts_taken = true;
         system("cls");
         exitprog = false;
         userpage(user);
 
 }
 
-void ethics(const User& user){
+void ethics(User& user){
 	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
     system("cls");
 
@@ -2220,18 +2244,20 @@ void ethics(const User& user){
         }
 
         // Calculate Score
+        int score = 0;
         for (int i = 0; i < NUM_QUESTIONS; i++) {
             if (toupper(userAnswers[i]) == correctAnswers[i]) {
-                ethics_score++;
+                score++;
             }
         }
 
         system("cls");
+        user.ethics_score = score;
         cout << "You completed the Applied Ethics exam\n";
-        cout << "Final Score: " << ethics_score << "/" << NUM_QUESTIONS << endl;
+        cout << "Final Score: " << score << "/" << NUM_QUESTIONS << endl;
         cout << "Please wait...";
         sleep(3);
-        ethics_taken = true;
+        user.ethics_taken = true;
         system("cls");
         exitprog = false;
         userpage(user);
@@ -2240,7 +2266,7 @@ void ethics(const User& user){
 
 
 
-void discrete(const User& user){
+void discrete(User& user){
 	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 	system("cls");
 
@@ -2333,18 +2359,20 @@ void discrete(const User& user){
         }
 
         // Calculate Score
+        int score = 0;
         for (int i = 0; i < NUM_QUESTIONS; i++) {
             if (toupper(userAnswers[i]) == correctAnswers[i]) {
-                discrete_score++;
+                score++;
             }
         }
 
         system("cls");
+        user.discrete_score = score;
         cout << "You completed the Discrete Mathematics exam\n";
-        cout << "Final Score: " << discrete_score << "/" << NUM_QUESTIONS << endl;
+        cout << "Final Score: " << score << "/" << NUM_QUESTIONS << endl;
         cout << "Please wait...";
         sleep(3);
-        discrete_taken = true;
+        user.discrete_taken = true;
         system("cls");
         exitprog = false;
         userpage(user);
@@ -2353,7 +2381,7 @@ void discrete(const User& user){
 
 
 
-void pathfit(const User& user){
+void pathfit(User& user){
 	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
     system("cls");
 
@@ -2446,18 +2474,20 @@ void pathfit(const User& user){
         }
 
         // Calculate Score
+        int score = 0;
         for (int i = 0; i < NUM_QUESTIONS; i++) {
             if (toupper(userAnswers[i]) == correctAnswers[i]) {
-                pathfit_score++;
+                score++;
             }
         }
 
         system("cls");
+               user.pathfit_score = score;
         cout << "You completed the PATHFIT exam\n";
-        cout << "Final Score: " << pathfit_score << "/" << NUM_QUESTIONS << endl;
+        cout << "Final Score: " << score << "/" << NUM_QUESTIONS << endl;
         cout << "Please wait...";
         sleep(3);
-        pathfit_taken = true;
+        user.pathfit_taken = true;
         system("cls");
         exitprog = false;
         userpage(user);
@@ -2466,7 +2496,7 @@ void pathfit(const User& user){
 }
 
 
-void comprog(const User& user) {
+void comprog(User& user) {
 	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
     system("cls");
 
@@ -2558,19 +2588,20 @@ void comprog(const User& user) {
 		}
         }
         // Calculate Score
-        comprog_score = 0;
+        int score = 0;
         for (int i = 0; i < NUM_QUESTIONS; i++) {
             if (toupper(userAnswers[i]) == correctAnswers[i]) {
-                comprog_score++;
+                score++;
             }
         }
 
         system("cls");
+        user.comprog_score = score;
         cout << "You completed the Computer Programming exam!\n";
-        cout << "Final Score: " << comprog_score << "/" << NUM_QUESTIONS << endl;
+        cout << "Final Score: " << score << "/" << NUM_QUESTIONS << endl;
         cout << "Please wait...";
         sleep(3);
-        comprog_taken = true;
+        user.comprog_taken = true;
         system("cls");
         exitprog = false;
         userpage(user);
@@ -2578,7 +2609,7 @@ void comprog(const User& user) {
 }
 
 
-void purcomm(const User& user) {
+void purcomm(User& user) {
 	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
     system("cls");
 
@@ -2671,33 +2702,35 @@ void purcomm(const User& user) {
         }
 
         // Calculate Score
+        int score = 0;
         for (int i = 0; i < NUM_QUESTIONS; i++) {
             if (toupper(userAnswers[i]) == correctAnswers[i]) {
-                purcomm_score++;
+                score++;
             }
         }
 
         system("cls");
+        user.purcomm_score = score;
         cout << "You completed the Purposive Communication exam!\n";
-        cout << "Final Score: " << purcomm_score << "/" << NUM_QUESTIONS << endl;
+        cout << "Final Score: " << score << "/" << NUM_QUESTIONS << endl;
         cout << "Please wait...";
         sleep(3);
-        purcomm_taken = true;
+        user.purcomm_taken = true;
         system("cls");
         exitprog = false;
         userpage(user);
         }
 
-void subscore() {
-    int comprog_grade = ((float)comprog_score / 25) * 50 + 50;
-    int purcomm_grade = ((float)purcomm_score / 25) * 50 + 50;
-    int pathfit_grade = ((float)pathfit_score / 25) * 50 + 50;
-    //int nstp_grade = ((float)nstp_score / 25) * 50 + 50;
-    int fildis_grade = ((float)fildis_score / 25) * 50 + 50;
-    int artapp_grade = ((float)pathfit_score / 25) * 50 + 50;
-    int sts_grade = ((float)sts_score / 25) * 50 + 50;
-    int ethics_grade = ((float)ethics_score / 25) * 50 + 50;
-    int discrete_grade = ((float)discrete_score / 25) * 50 + 50;
+void subscore(User& user) {
+    int comprog_grade = ((float)user.comprog_score / 25) * 50 + 50;
+    int purcomm_grade = ((float)user.purcomm_score / 25) * 50 + 50;
+    int pathfit_grade = ((float)user.pathfit_score / 25) * 50 + 50;
+    int nstp_grade = ((float)user.nstp_score / 25) * 50 + 50;
+    int fildis_grade = ((float)user.fildis_score / 25) * 50 + 50;
+    int artapp_grade = ((float)user.artapp_score / 25) * 50 + 50;
+    int sts_grade = ((float)user.sts_score / 25) * 50 + 50;
+    int ethics_grade = ((float)user.ethics_score / 25) * 50 + 50;
+    int discrete_grade = ((float)user.discrete_score / 25) * 50 + 50;
 	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
     char select;
     system("cls");
@@ -2729,51 +2762,76 @@ void subscore() {
 	SetConsoleTextAttribute(h,14);
 	cout << "Scores:\t      ";
 	cout << "Grades: \n\n";
+	if(user.purcomm_score != -1){
 	SetConsoleTextAttribute(h,15);
     cout << "                                                                 Purposive Communication                                   ";
 	SetConsoleTextAttribute(h,14);
-	cout << purcomm_score << "/25\t                ";
+
+	cout << user.purcomm_score << "/25\t                ";
 	cout << purcomm_grade << "%" << endl;
-	SetConsoleTextAttribute(h,15);
+
+	}
+
+	if(user.artapp_score != -1){
+            SetConsoleTextAttribute(h,15);
     cout << "                                                                 Art Appreciation                                          ";
     SetConsoleTextAttribute(h,14);
-	cout << artapp_score << "/25\t                ";
+	cout << user.artapp_score << "/25\t                ";
 	cout << artapp_grade << "%" << endl;
+	}
+
+	if(user.sts_score != -1){
 	SetConsoleTextAttribute(h,15);
     cout << "                                                                 Science Technology and Society                            ";
 	SetConsoleTextAttribute(h,14);
-	cout << sts_score << "/25\t                ";
+	cout << user.sts_score << "/25\t                ";
 	cout << sts_grade << "%" << endl;
+	}
+
+	if(user.ethics_score != -1){
 	SetConsoleTextAttribute(h,15);
     cout << "                                                                 Applied Ethics                                            ";
 	SetConsoleTextAttribute(h,14);
 	cout << ethics_score << "/25\t                ";
 	cout << ethics_grade << "%" << endl;
+	}
+
+	if(user.discrete_score != -1){
 	SetConsoleTextAttribute(h,15);
     cout << "                                                                 Discrete Mathemathics                                     ";
 	SetConsoleTextAttribute(h,14);
-	cout << discrete_score << "/25\t                ";
+	cout << user.discrete_score << "/25\t                ";
 	cout << discrete_grade << "%" << endl;
+	}
+
+	if(user.comprog_score != -1){
 	SetConsoleTextAttribute(h,15);
     cout << "                                                                 Computer Programming 2                                    ";
 	SetConsoleTextAttribute(h,14);
-	cout << comprog_score << "/25\t                ";
+	cout << user.comprog_score << "/25\t                ";
 	cout << comprog_grade << "%" << endl;
+	}
+	if(user.fildis_score != -1){
 	SetConsoleTextAttribute(h,15);
     cout << "                                                                 Filipino sa iba't ibang Disiplina                         ";
 	SetConsoleTextAttribute(h,14);
-	cout << fildis_score << "/25\t                ";
+	cout << user.fildis_score << "/25\t                ";
 	cout << fildis_grade << "%" << endl;
+	}
+	if(user.nstp_score != -1){
 	SetConsoleTextAttribute(h,15);
-    //cout << "                                                                 National Service Training Program                         ";
-	//SetConsoleTextAttribute(h,14);
-	//cout << nstp_score << "/25\t                ";
-	//cout << nstp_grade << "%" << endl;
-	//SetConsoleTextAttribute(h,15);
+    cout << "                                                                 National Service Training Program                         ";
+	SetConsoleTextAttribute(h,14);
+	cout << user.nstp_score << "/25\t                ";
+	cout << nstp_grade << "%" << endl;
+	}
+	if(user.pathfit_score != -1){
+	SetConsoleTextAttribute(h,15);
     cout << "                                                                 PATHFIT2                                                  ";
 	SetConsoleTextAttribute(h,14);
-	cout << pathfit_score << "/25\t                ";
+	cout << user.pathfit_score << "/25\t                ";
 	cout << pathfit_grade << "%" << endl;
+	}
     SetConsoleTextAttribute(h,3);
     cout << "\n\n\n\n\t\t\t\t================================================================================================================================================\n\n\n";
     SetConsoleTextAttribute(h,15);
@@ -2784,9 +2842,10 @@ void subscore() {
     if(select == '1') {
         cout << "\n\n\n\n\t\t\t\t\t\t\t Returning..." << endl;
         sleep(1.5);
+        cin.ignore();
         exitprog = false;
         system("cls");
-        //userpage(user);
+        userpage(user);
     } else if(select == '2')
     {
         exit;
@@ -2882,7 +2941,7 @@ if (error) {
     SetConsoleTextAttribute(h,3);
 	cout << "\n\n\t\t\t\t                                                        =================================\n";
 	sleep(1.5);
-	for (const auto& user : users) {
+	for (auto& user : users) {
     if (user.username == InputUsername && user.password == InputPassword) {
          loggedIn = true;
         if (user.role == "admin") {

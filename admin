@@ -1,0 +1,73 @@
+			deleteUser(); break;
+            case 5: break;
+            default: cout << "\n\t\tInvalid choice.\n"; system("pause");
+        }
+    }
+
+
+}
+
+void selectUser(){
+
+}
+
+
+void createUser(){
+
+}
+
+void updateUser(){
+
+}
+
+void deleteUser(){
+
+}
+
+
+
+
+
+//	cout << "\n\t\t\t\t                                                              USERNAME*\n ";
+//    cout << "\t\t\t\t                                                                 = ";
+//    SetConsoleTextAttribute(h,15);
+//    getline(cin, name);
+//     SetConsoleTextAttribute(h, 14);
+//        cout << "\t\t\t\t                                                              PASSWORD*\n ";
+//        cout << "\t\t\t\t                                                                 = ";
+//        SetConsoleTextAttribute(h, 15);
+//        pass = "";
+//    SetConsoleTextAttribute(h,15);
+//     while ((ch = _getch()) != '\r') {
+//        if (ch == '\b') {
+//            if (!pass.empty()) {
+//               pass.erase(pass.size() - 1);
+//                cout << "\b \b";
+//            }
+//        } else {
+//            pass += ch;
+//            cout << '*';
+//        }
+//    }
+//
+//    if(pass != userpass || pass != adminpass){
+//    	cin.clear();
+//    	error = true;
+//	}
+//    SetConsoleTextAttribute(h,15);
+//
+//    SetConsoleTextAttribute(h,3);
+//	cout << "\n\n\t\t\t\t                                                        =================================\n";
+//	sleep(1.5);
+//	if(name == adminname && pass == adminpass){
+//    	adminpage();
+//	}else if(name == username && pass == userpass)
+//	{
+//	userpage();
+//	}else{
+//error = true;
+//cin.clear();
+//}
+//system("cls");
+//
+//}

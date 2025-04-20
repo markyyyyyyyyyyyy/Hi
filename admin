@@ -1,3 +1,66 @@
+#include <iostream>
+#include <string.h>
+#include <unistd.h>
+#include <windows.h>
+#include <conio.h>
+#include <fstream>
+#include <vector>
+
+using namespace std;
+struct User {
+    string username;
+    string password;
+};
+
+
+
+
+void userpage();
+void subscore();
+void createUser();
+void updateUser();
+void deleteUser();
+void selectUser();
+//user account
+string username = "Dear Gerbolingo";
+string userpass = "28p@ssw0rD";
+
+
+//admin
+string name;
+string adminname = "mark";
+string pass, adminpass = "alcayde";
+
+bool closeprog = false;
+void adminpage(){
+	int choice;
+   system("cls");
+   cout << "Hello admin, " << adminname << endl;
+
+
+      while(!closeprog){
+
+        cout << "\n\t\t1. View Student";
+        cout << "\n\t\t2. Create User";
+        cout << "\n\t\t3. Update Password";
+        cout << "\n\t\t4. Delete User";
+        cout << "\n\t\t5. Logout" << endl;
+        cout << "Choice: ";
+
+        cin >> choice;
+
+        switch (choice) {
+            case 1:
+                  closeprog = true;
+			      selectUser(); break;
+            case 2:
+            closeprog = true;
+			createUser(); break;
+            case 3:
+			closeprog = true;
+			updateUser(); break;
+            case 4:
+			closeprog = true;
 			deleteUser(); break;
             case 5: break;
             default: cout << "\n\t\tInvalid choice.\n"; system("pause");
@@ -23,6 +86,7 @@ void updateUser(){
 void deleteUser(){
 
 }
+
 
 
 
